@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import CustomLink from './CustomLink';
+import {RiMenu3Fill} from 'react-icons/ri'
 
-
-const Navbar = () => {
+const Navbar = ({children}) => {
     const NavLink =
         <>
             <li><CustomLink to="/">Home</CustomLink></li>
@@ -31,7 +31,7 @@ const Navbar = () => {
                         <div className='navbar-end'>
                             <div className="flex-none md:hidden">
                                 <label htmlFor="navbar-drawer" className="btn btn-square btn-ghost">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                                    <RiMenu3Fill className='text-xl text-black'></RiMenu3Fill>
                                 </label>
                             </div>
                             <div className="dropdown dropdown-end">
@@ -53,8 +53,7 @@ const Navbar = () => {
                             </div>
                         </div>
                     </div>
-
-                    Content
+                    {children}
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="navbar-drawer" className="drawer-overlay"></label>
