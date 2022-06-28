@@ -7,7 +7,7 @@ const CustomLink = ({ children, to }) => {
   
     return (
 
-        <Link className={`hover:text-primary ${match? 'text-primary underline underline-offset-4': ''} bg-base-100 uppercase`}
+        <Link className={`hover:text-primary font-medium ${match? 'text-primary underline underline-offset-4 decoration-2': ''} bg-base-100 uppercase`}
             to={to}> {children} 
         </Link>
 

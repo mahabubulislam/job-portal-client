@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Category from './Category';
 
 const Categories = () => {
@@ -11,6 +12,7 @@ const Categories = () => {
                     categories.map(catogory => <Category />)
                 }
             </div>
+            <Link to='all-catogories' className='btn btn-primary mx-auto flex mb-5 w-3/4 md:w-1/3 xl:w-1/6'>Browse All Categories</Link>
         </section>
     );
 };
