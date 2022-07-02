@@ -5,14 +5,14 @@ const Signup = () => {
     const [agree, setAgree] = useState(false)
     return (
         <section className='bg-blue-100'>
-            <div class="flex flex-col-reverse lg:flex-row items-center justify-center my-10 p-0 md:p-10 w-full md:w-3/4 mx-auto bg-base-100 shadow-2xl">
+            <div class="flex flex-col-reverse lg:flex-row items-center justify-center my-10 p-0 md:p-10 w-full md:w-3/4 mx-auto bg-base-100 shadow-2xl rounded-lg">
                 <div className='flex items-center flex-col'>
                     <h3 className='text-2xl font-bold mt-10'><span>Job</span><span className='text-primary'>Haunt</span></h3>
                     <img src={signup} alt="Album" />
                 </div>
                 <div class="w-full">
-                    <div className='p-5'>
-                        <h2 class="text-2xl">Let's Get Started</h2>
+                    <div className='p-5 text-center'>
+                        <h2 class="text-2xl my-3">Let's Get Started</h2>
                         <p>Sign Up and get access to all the features of <span className='font-semibold'>Job</span><span className='text-primary font-semibold'>Haunt</span></p>
                     </div>
                     <form className='flex flex-col p-10'>
@@ -35,7 +35,7 @@ const Signup = () => {
                         <label class="block">
                             <span class="block text-sm font-medium my-2">Already have an account? <Link to='/login' className='text-primary'>Login</Link></span>
                         </label>
-                        <input disabled={!agree} type="submit" value="Signup" className='btn btn-primary my-4 mx-auto hover:-translate-y-2 duration-200' />
+                        <input disabled={!agree} type="submit" value="Sign Up" className='btn btn-primary my-4 mx-auto hover:-translate-y-2 duration-200' />
                     </form>
                 </div>
             </div>
