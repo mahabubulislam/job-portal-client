@@ -24,7 +24,7 @@ const Login = () => {
                             <input type="password" name='password' className='outline-none border-b-2 border-primary p-2 w-full lg:w-4/5' placeholder='Password' />
                         </label>
                         <label class="block my-2">
-                            <Link to='reset-password' className='text-primary'><small>Forgot password?</small></Link>
+                            <Link to='/reset-password' className='text-primary'><small>Forgot password?</small></Link>
                         </label>
                         <label class="block">
                             <span class="block text-sm font-medium my-2">Don't have an account? <Link to='/signup' className='text-primary'>Signup</Link></span>

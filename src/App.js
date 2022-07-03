@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import ForgotPassword from "./Pages/Authentications/ForgotPassword";
 import Login from "./Pages/Authentications/Login";
 import Signup from "./Pages/Authentications/Signup";
 import Home from "./Pages/Home/Home";
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
         <Route path="/login" element={<Login />}></Route>
+        <Route path="/reset-password" element={<ForgotPassword />}></Route>
       </Routes>
       <Footer/>
     </Navbar>
