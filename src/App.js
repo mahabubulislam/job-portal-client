@@ -3,8 +3,8 @@ import ForgotPassword from "./Pages/Authentications/ForgotPassword";
 import Login from "./Pages/Authentications/Login";
 import Signup from "./Pages/Authentications/Signup";
 import Blogs from "./Pages/Blog/Blogs";
+import Contact from "./Pages/Contact/Contact";
 import Home from "./Pages/Home/Home";
-import Footer from "./Pages/Shared/Footer/Footer";
 import Navbar from "./Pages/Shared/Navbar/Navbar";
 
 function App() {
@@ -16,8 +16,8 @@ function App() {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/reset-password" element={<ForgotPassword />}></Route>
         <Route path="/blog" element={<Blogs />}></Route>
+        <Route path="/contact" element={<Contact />}></Route>
       </Routes>
-      <Footer/>
     </Navbar>
   );
 }
