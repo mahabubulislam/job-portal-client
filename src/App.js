@@ -5,6 +5,7 @@ import Signup from "./Pages/Authentications/Signup";
 import Blogs from "./Pages/Blog/Blogs";
 import Contact from "./Pages/Contact/Contact";
 import Home from "./Pages/Home/Home";
+import Jobs from "./Pages/Jobs/Jobs";
 import Navbar from "./Pages/Shared/Navbar/Navbar";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/signup" element={<Signup />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/reset-password" element={<ForgotPassword />}></Route>
+        <Route path="/jobs" element={<Jobs />}></Route>
         <Route path="/blog" element={<Blogs />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
       </Routes>

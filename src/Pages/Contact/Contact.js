@@ -12,7 +12,7 @@ const Contact = () => {
             <div className='flex flex-col md:flex-row justify-around items-center'>
                 <div className='w-1/3'>
                     <h3 className='text-3xl font-semibold'>Get in touch</h3>
-                    <p className='text-slate-600'>Start working with Jobcy that can provide everything you need to generate awareness, drive traffic, connect.</p>
+                    <p className='text-slate-600'>Start working with <span>Job</span><span className='text-primary'>Haunt</span> that can provide everything you need to generate awareness, drive traffic, connect.</p>
                     <form onSubmit={e => e.preventDefault()}>
                         <label class="block">
                             <span class="block text-sm font-medium my-2">Name</span>
