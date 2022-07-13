@@ -4,7 +4,7 @@ import { MdLocationPin } from 'react-icons/md'
 const Job = () => {
 
   return (
-    <div class="card my-10 card-compact bg-base-100 hover:shadow-xl rounded-md after:content-['Hello'] after:h-20 after:w-20 after:bg-primary after:absolute after:-m-10 after:-rotate-45 border-2 hover:border-primary hover:-translate-y-2 ease-in-out duration-300">
+    <div class="card my-10 card-compact bg-base-100 hover:shadow-xl rounded-md after:content-['Hello'] after:h-20 after:w-20 after:bg-primary after:absolute after:-m-10 after:-rotate-45 border hover:border-primary hover:-translate-y-2 ease-in-out duration-300">
       <h1 className='absolute text-xl top-2 left-2 text-white z-10'><AiFillStar /></h1>
       <div class="card-body">
         <div className='flex flex-col md:flex-row items-center justify-around'>

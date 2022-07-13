@@ -3,13 +3,15 @@ import Banner from './Banner';
 import Categories from './Categories';
 import HowItWork from './HowItWork';
 import Footer from '../Shared/Footer/Footer'
+import NewJobs from './NewJobs';
 const Home = () => {
     return (
         <main>
-            <Banner/>
-            <Categories/>
-            <HowItWork/>
-            <Footer/>
+            <Banner />
+            <Categories />
+            <NewJobs />
+            <HowItWork />
+            <Footer />
         </main>
     );
 };
