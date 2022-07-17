@@ -1,36 +1,50 @@
 import React from 'react';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import login from '../../assets/images/login.png'
+import auth from '../../firebase.init';
+import SocialLogin from './SocialLogin';
 const Login = () => {
+    const [signInWithEmailAndPassword, user, loading, error,] = useSignInWithEmailAndPassword(auth);
+    const { register, formState: { errors }, handleSubmit } = useForm();
+    const onSubmit = data => {
+        signInWithEmailAndPassword(data?.email, data?.password)
+    };
+
     return (
         <section className='bg-blue-100'>
-            <div class="flex flex-col-reverse lg:flex-row items-center justify-center my-10 p-0 md:p-10 w-full md:w-3/4 mx-auto bg-base-100 shadow-2xl rounded-lg">
+            <div className="flex flex-col-reverse lg:flex-row items-center justify-center my-10 p-0 md:p-10 w-full md:w-3/4 mx-auto bg-base-100 shadow-2xl rounded-lg">
                 <div className='flex items-center flex-col'>
                     <h3 className='text-2xl font-bold mt-10'><span>Job</span><span className='text-accent'>Haunt</span></h3>
                     <img src={login} alt="Album" />
                 </div>
-                <div class="w-full">
+                <div className="w-full">
                     <div className='p-5 text-center'>
-                        <h2 class="text-2xl my-3">Welcome back !</h2>
+                        <h2 className="text-2xl my-3">Welcome back !</h2>
                         <p>Sign in to continue  <span className='font-semibold'>Job</span><span className='text-accent font-semibold'>Haunt</span></p>
                     </div>
-                    <form className='flex flex-col p-10'>
-                        <label class="block">
-                            <span class="block text-sm font-medium my-2">Email</span>
-                            <input type="email" name='email' className='outline-none border-b-2 border-primary p-2 w-full lg:w-4/5' placeholder='Your Email' />
+                    <form className='flex flex-col px-10' onSubmit={handleSubmit(onSubmit)}>
+                        <label className="block">
+                            <span className="after:content-['*'] after:ml-0.5 after:text-red-600 block text-sm font-medium my-2">Email</span>
+                            <input type="email" name='email' {...register("email", { required: true })} className='outline-none border-b-2 border-primary p-2 w-full lg:w-4/5' placeholder='Your Email' />
+                            {errors.email?.type === 'required' && <small className='block text-red-600'>Email is required</small>}
                         </label>
-                        <label class="block">
-                            <span class="block text-sm font-medium my-2">Password</span>
-                            <input type="password" name='password' className='outline-none border-b-2 border-primary p-2 w-full lg:w-4/5' placeholder='Password' />
+                        <label className="block">
+                            <span className="after:content-['*'] after:ml-0.5 after:text-red-600 block text-sm font-medium my-2">Password</span>
+                            <input type="password" name='password' {...register("password", { required: true })} className='outline-none border-b-2 border-primary p-2 w-full lg:w-4/5' placeholder='Password' />
+                            {errors.password?.type === 'required' && <small className='block text-red-600'>Password is required</small>}
                         </label>
-                        <label class="block my-2">
+                        <label className="block my-2">
                             <Link to='/reset-password' className='text-primary'><small>Forgot password?</small></Link>
                         </label>
-                        <label class="block">
-                            <span class="block text-sm font-medium my-2">Don't have an account? <Link to='/signup' className='text-primary'>Signup</Link></span>
+                        {error && <small className='text-red-600 block'>{error.message.slice(10)}</small>}
+                        <label className="block">
+                            <span className="block text-sm font-medium my-2">Don't have an account? <Link to='/signup' className='text-primary'>Signup</Link></span>
                         </label>
-                        <input type="submit" value="Sign In" className='btn btn-primary my-4 mx-auto hover:-translate-y-2 duration-200' />
+                        <input type="submit" value="Sign In" className='btn btn-primary mt-2 mx-auto hover:-translate-y-2 duration-200' />
                     </form>
+                    <SocialLogin />
                 </div>
             </div>
         </section>
