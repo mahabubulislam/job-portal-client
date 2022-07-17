@@ -1,11 +1,32 @@
+import { async } from '@firebase/util';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+
+import { useForm } from 'react-hook-form';
+import { Link, Navigate } from 'react-router-dom';
 import signup from '../../assets/images/signup.png'
+import auth from '../../firebase.init';
+import SocialLogin from './SocialLogin';
 const Signup = () => {
-    const [agree, setAgree] = useState(false)
+    const [agree, setAgree] = useState(false);
+    const { register, formState: { errors }, handleSubmit } = useForm();
+    const [displayName, setDisplayName] = useState('');
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+    const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
+    if (updating) {
+        return <p>Loading...</p>
+    }
+    if(user){
+        return <Navigate to='/'/>
+    }
+    const onSubmit = async data => {
+        createUserWithEmailAndPassword(data?.email, data?.password)
+        await updateProfile(displayName)
+    };
+    
     return (
         <section className='bg-blue-100'>
-            <div class="flex flex-col-reverse lg:flex-row items-center justify-center my-10 p-0 md:p-10 w-full md:w-3/4 mx-auto bg-base-100 shadow-2xl rounded-lg">
+            <div class="flex flex-col-reverse xl:flex-row items-center justify-center my-10 p-0 md:p-10 w-full md:w-3/4 mx-auto bg-base-100 shadow-2xl rounded-lg">
                 <div className='flex items-center flex-col'>
                     <h3 className='text-2xl font-bold mt-10'><span>Job</span><span className='text-primary'>Haunt</span></h3>
                     <img src={signup} alt="Album" />
@@ -15,28 +36,33 @@ const Signup = () => {
                         <h2 class="text-2xl my-3">Let's Get Started</h2>
                         <p>Sign Up and get access to all the features of <span className='font-semibold'>Job</span><span className='text-primary font-semibold'>Haunt</span></p>
                     </div>
-                    <form className='flex flex-col p-10'>
+                    <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col px-10'>
                         <label class="block">
                             <span class="block text-sm font-medium my-2">Username</span>
-                            <input type="text" name='name' className='outline-none border-b-2 border-primary p-2 w-full lg:w-4/5' placeholder='Your Name' />
+                            <input onChange={(e) => setDisplayName(e.target.value)}  {...register("name", { required: true })}  type="text" name='name' className='outline-none border-b-2 border-primary p-2 w-full lg:w-4/5' placeholder='Your Name' />
+                            {errors.name?.type === 'required' && <small className='block text-red-600'>Name is required</small>}
                         </label>
                         <label class="block">
                             <span class="block text-sm font-medium my-2">Email</span>
-                            <input type="email" name='email' className='outline-none border-b-2 border-primary p-2 w-full lg:w-4/5' placeholder='Your Email' />
+                            <input type="email" name='email'  {...register("email", { required: true })} className='outline-none border-b-2 border-primary p-2 w-full lg:w-4/5' placeholder='Your Email' />
+                            {errors.email?.type === 'required' && <small className='block text-red-600'>Email is required</small>}
                         </label>
                         <label class="block">
                             <span class="block text-sm font-medium my-2">Password</span>
-                            <input type="password" name='password' className='outline-none border-b-2 border-primary p-2 w-full lg:w-4/5' placeholder='Password' />
+                            <input type="password" name='password' {...register("password", { required: true })} className='outline-none border-b-2 border-primary p-2 w-full lg:w-4/5' placeholder='Password' />
+                            {errors.password?.type === 'required' && <small className='block text-red-600'>Password is required</small>}
                         </label>
-                        <label class="block my-2">
-                            <input onClick={() => setAgree(!agree)} type="checkbox" name="terms" id="terms" className='mr-auto my-2' />
-                            <span className='ml-2'>I agree to the Terms and conditions</span>
+                        <label class="my-2 flex items-center">
+                            <input onClick={() => setAgree(!agree)} type="checkbox" name="terms" id="terms" className='my-2' />
+                            <small className='ml-2 block text-red-600'>I agree to the Terms and conditions</small>
                         </label>
+                        {error && <small className='text-red-600 block'>{error.message.slice(10)}</small>}
                         <label class="block">
                             <span class="block text-sm font-medium my-2">Already have an account? <Link to='/login' className='text-primary'>Login</Link></span>
                         </label>
-                        <input disabled={!agree} type="submit" value="Sign Up" className='btn btn-primary my-4 mx-auto hover:-translate-y-2 duration-200' />
+                        <input disabled={!agree} type="submit" value="Sign Up" className='btn btn-primary mt-2  mx-auto hover:-translate-y-2 duration-200' />
                     </form>
+                    <SocialLogin />
                 </div>
             </div>
         </section>

@@ -14,7 +14,7 @@ const Login = () => {
 
     return (
         <section className='bg-blue-100'>
-            <div className="flex flex-col-reverse lg:flex-row items-center justify-center my-10 p-0 md:p-10 w-full md:w-3/4 mx-auto bg-base-100 shadow-2xl rounded-lg">
+            <div className="flex flex-col-reverse xl:flex-row items-center justify-center my-10 p-0 md:p-10 w-full md:w-3/4 mx-auto bg-base-100 shadow-2xl rounded-lg">
                 <div className='flex items-center flex-col'>
                     <h3 className='text-2xl font-bold mt-10'><span>Job</span><span className='text-accent'>Haunt</span></h3>
                     <img src={login} alt="Album" />
