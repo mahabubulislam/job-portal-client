@@ -9,8 +9,8 @@ import Footer from '../Shared/Footer/Footer';
 const Contact = () => {
     return (
         <section className='flex flex-col mt-10'>
-            <div className='flex flex-col md:flex-row justify-around items-center'>
-                <div className='w-1/3'>
+            <div className='flex flex-col md:flex-row justify-around items-center px-10'>
+                <div className='md:w-1/3'>
                     <h3 className='text-3xl font-semibold'>Get in touch</h3>
                     <p className='text-slate-600'>Start working with <span>Job</span><span className='text-primary'>Haunt</span> that can provide everything you need to generate awareness, drive traffic, connect.</p>
                     <form onSubmit={e => e.preventDefault()}>
@@ -44,7 +44,7 @@ const Contact = () => {
                     </div>
                 </div>
             </div>
-            <MapContainer className='w-full h-full' center={[23.8103, 90.4125]} zoom={13}>
+            <MapContainer className='w-full md:h-full' center={[23.8103, 90.4125]} zoom={13} style={{height:'250px'}}>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'

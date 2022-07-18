@@ -5,10 +5,13 @@ import { RiMenu3Fill } from 'react-icons/ri'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import LogoutModal from './LogoutModal';
+import Loading from '../Loading/Loading';
 
 const Navbar = ({ children }) => {
     const [user, loading] = useAuthState(auth)
-
+    if(loading){
+        return <Loading/>
+    }
     const NavLink =
         <>
             <li><CustomLink to="/">Home</CustomLink></li>

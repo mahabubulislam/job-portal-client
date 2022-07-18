@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form';
 import { Link, Navigate } from 'react-router-dom';
 import signup from '../../assets/images/signup.png'
 import auth from '../../firebase.init';
+import Loading from '../Shared/Loading/Loading';
 import SocialLogin from './SocialLogin';
 const Signup = () => {
     const [agree, setAgree] = useState(false);
@@ -13,7 +14,7 @@ const Signup = () => {
     const [updateProfile, updating] = useUpdateProfile(auth);
     const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
     if (updating || loading) {
-        return <p>Loading...</p>
+        return <Loading/>
     }
 
     const onSubmit = async data => {
