@@ -8,7 +8,7 @@ import LogoutModal from './LogoutModal';
 
 const Navbar = ({children}) => {
     const [user, loading] = useAuthState(auth)
-    console.log(user);
+    
     const NavLink =
         <>
             <li><CustomLink to="/">Home</CustomLink></li>

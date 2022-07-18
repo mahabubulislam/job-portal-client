@@ -1,4 +1,6 @@
 import { Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import ForgotPassword from "./Pages/Authentications/ForgotPassword";
 import Login from "./Pages/Authentications/Login";
 import Signup from "./Pages/Authentications/Signup";
@@ -20,6 +22,17 @@ function App() {
         <Route path="/blog" element={<Blogs />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
       </Routes>
+      <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
     </Navbar>
   );
 }

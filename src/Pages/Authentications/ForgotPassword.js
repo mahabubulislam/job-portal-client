@@ -1,7 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 import forgotpassword from '../../assets/images/forgotpassword.png'
+import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import { toast } from 'react-toastify';
 const ForgotPassword = () => {
+    const { register, formState: { errors }, handleSubmit } = useForm();
+    const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(auth);
+    const onSubmit = async data => {
+        await sendPasswordResetEmail(data?.email)
+        toast.success('Password reset mail sent. Please check your email');
+    };
+
     return (
         <section className='bg-blue-100'>
             <div class="flex flex-col-reverse lg:flex-row items-center justify-center my-10 p-0 md:p-10 w-full md:w-3/4 mx-auto bg-base-100 shadow-2xl rounded-lg">
@@ -17,10 +28,11 @@ const ForgotPassword = () => {
                     <div className='p-3 text-center bg-accent w-3/5 mx-auto rounded-lg'>
                         <p>Enter your Email and instructions will be sent to you!</p>
                     </div>
-                    <form className='flex flex-col p-10'>
+                    <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col p-10'>
                         <label class="block mx-auto">
                             <span class="block text-sm font-medium my-2">Email</span>
-                            <input type="email" name='email' className='outline-none border-b-2 border-primary p-2 w-full' placeholder='Your Email' />
+                            <input type="email" name='email'  {...register("email", { required: true })} className='outline-none border-b-2 border-primary p-2 w-full' placeholder='Your Email' />
+                            {errors.email?.type === 'required' && <small className='block text-red-600'>Email is required</small>}
                         </label>
                         <button className='btn mt-4 mx-auto'>Send mail</button>
                         <label class="block mx-auto">
