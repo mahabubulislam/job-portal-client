@@ -4,6 +4,7 @@ import Categories from './Categories';
 import HowItWork from './HowItWork';
 import Footer from '../Shared/Footer/Footer'
 import NewJobs from './NewJobs';
+import Reviews from './Reviews';
 const Home = () => {
     return (
         <main>
@@ -11,6 +12,7 @@ const Home = () => {
             <Categories />
             <NewJobs />
             <HowItWork />
+            <Reviews/>
             <Footer />
         </main>
     );

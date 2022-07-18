@@ -1,6 +1,7 @@
 import React from 'react';
 import { AiFillStar, AiOutlineDoubleRight } from 'react-icons/ai'
 import { MdLocationPin } from 'react-icons/md'
+
 const Job = () => {
 
   return (
@@ -13,7 +14,7 @@ const Job = () => {
           </figure>
           <div>
             <h2 class="card-title">Frontend Developer</h2>
-            <p className='text-xl'>Brain Station 23</p>
+            <p className='text-xl'>XYZ Limited</p>
           </div>
           <div className='flex items-center'>
             <MdLocationPin className='text-primary' />
