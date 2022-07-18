@@ -2,15 +2,20 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import CustomLink from './CustomLink';
 import {RiMenu3Fill} from 'react-icons/ri'
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
+import LogoutModal from './LogoutModal';
 
 const Navbar = ({children}) => {
+    const [user, loading] = useAuthState(auth)
+    console.log(user);
     const NavLink =
         <>
             <li><CustomLink to="/">Home</CustomLink></li>
             <li><CustomLink to="/jobs">Jobs</CustomLink></li>
             <li><CustomLink to="/blog">Blog</CustomLink></li>
             <li><CustomLink to="/contact">Contact</CustomLink></li>
-            <li><CustomLink to="/login">Login</CustomLink></li>
+            {!user && <li><CustomLink to="/login">Login</CustomLink></li>}
         </>
 
     return (
@@ -37,7 +42,7 @@ const Navbar = ({children}) => {
                             <div className="dropdown dropdown-end">
                                 <label tabindex="0" className="btn btn-ghost btn-circle avatar">
                                     <div className="w-10 rounded-full">
-                                        <img src="https://api.lorem.space/image/face?hash=33791" alt='' />
+                                        <img src={user?.photoURL || "https://api.lorem.space/image/face?hash=33791"} alt='' />
                                     </div>
                                 </label>
                                 <ul tabindex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 uppercase">
@@ -48,7 +53,7 @@ const Navbar = ({children}) => {
                                     </div></li>
                                     <li><Link className='bg-base-100 hover:text-primary hover:translate-x-1 delay-75' to='logout'>Bookmark Jobs</Link></li>
                                     <li><Link className='bg-base-100 hover:text-primary hover:translate-x-1 delay-75' to='logout'>Applied Jobs</Link></li>
-                                    <li><Link className='bg-base-100 hover:text-primary hover:translate-x-1 delay-75' to='logout'>Logout</Link></li>
+                                    <li><label htmlFor="logoutModal" class="bg-base-100 hover:text-primary hover:translate-x-1 delay-75">Sign Out</label></li>
                                 </ul>
                             </div>
                         </div>
@@ -60,9 +65,9 @@ const Navbar = ({children}) => {
                     <ul className="menu p-4 overflow-y-auto w-3/4 bg-base-100">
                         {NavLink}
                     </ul>
-
                 </div>
             </nav>
+            <LogoutModal/>
         </header>
     );
 };

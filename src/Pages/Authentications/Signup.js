@@ -10,20 +10,19 @@ import SocialLogin from './SocialLogin';
 const Signup = () => {
     const [agree, setAgree] = useState(false);
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const [displayName, setDisplayName] = useState('');
-    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+    const [updateProfile, updating] = useUpdateProfile(auth);
     const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
-    if (updating) {
+    if (updating || loading) {
         return <p>Loading...</p>
     }
-    if(user){
-        return <Navigate to='/'/>
-    }
+
     const onSubmit = async data => {
         createUserWithEmailAndPassword(data?.email, data?.password)
-        await updateProfile(displayName)
+        await updateProfile({ displayName: data?.name });
     };
-    
+    if (user) {
+        return <Navigate to='/' />
+    }
     return (
         <section className='bg-blue-100'>
             <div class="flex flex-col-reverse xl:flex-row items-center justify-center my-10 p-0 md:p-10 w-full md:w-3/4 mx-auto bg-base-100 shadow-2xl rounded-lg">
@@ -39,7 +38,7 @@ const Signup = () => {
                     <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col px-10'>
                         <label class="block">
                             <span class="block text-sm font-medium my-2">Username</span>
-                            <input onChange={(e) => setDisplayName(e.target.value)}  {...register("name", { required: true })}  type="text" name='name' className='outline-none border-b-2 border-primary p-2 w-full lg:w-4/5' placeholder='Your Name' />
+                            <input type="text" name='name' {...register("name", { required: true })} className='outline-none border-b-2 border-primary p-2 w-full lg:w-4/5' placeholder='Your Name' />
                             {errors.name?.type === 'required' && <small className='block text-red-600'>Name is required</small>}
                         </label>
                         <label class="block">
@@ -53,7 +52,7 @@ const Signup = () => {
                             {errors.password?.type === 'required' && <small className='block text-red-600'>Password is required</small>}
                         </label>
                         <label class="my-2 flex items-center">
-                            <input onClick={() => setAgree(!agree)} type="checkbox" name="terms" id="terms" className='my-2' />
+                            <input onClick={() => setAgree(!agree)} type="checkbox" name="terms" id="terms" className='my-2 checkbox checkbox-primary checkbox-xs' />
                             <small className='ml-2 block text-red-600'>I agree to the Terms and conditions</small>
                         </label>
                         {error && <small className='text-red-600 block'>{error.message.slice(10)}</small>}
