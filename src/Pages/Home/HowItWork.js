@@ -34,10 +34,10 @@ const HowItWork = () => {
             <h2 className='text-3xl'>How it work</h2>
             <p className='w-1/2'>Post a job to tell us about your project. We'll quickly match you with the right freelancers.</p>
             <div className='flex flex-col md:flex-row justify-evenly items-center'>
-                <ul class="steps steps-vertical">
-                    <li onClick={() => handleOpen(open)} class={`step ${open && 'step-primary'} step-primary`}>Register your account</li>
-                    <li onClick={() => handleOpen(open2)} class={`step ${open2 && 'step-primary'}`}>Find your Job</li>
-                    <li onClick={() => handleOpen(open3)} class={`step ${open3 && 'step-primary'}`}>Apply for Job</li>
+                <ul className="steps steps-vertical">
+                    <li onClick={() => handleOpen(open)} className={`step ${open && 'step-primary'} step-primary`}>Register your account</li>
+                    <li onClick={() => handleOpen(open2)} className={`step ${open2 && 'step-primary'}`}>Find your Job</li>
+                    <li onClick={() => handleOpen(open3)} className={`step ${open3 && 'step-primary'}`}>Apply for Job</li>
                 </ul>
                 <img className='w-96 h-96' src={handleImage} alt="" />
             </div>

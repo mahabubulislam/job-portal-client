@@ -25,39 +25,39 @@ const Signup = () => {
     }
     return (
         <section className='bg-blue-100'>
-            <div class="flex flex-col-reverse xl:flex-row items-center justify-center my-10 p-0 md:p-10 w-full md:w-3/4 mx-auto bg-base-100 shadow-2xl rounded-lg">
+            <div className="flex flex-col-reverse xl:flex-row items-center justify-center my-10 p-0 md:p-10 w-full md:w-3/4 mx-auto bg-base-100 shadow-2xl rounded-lg">
                 <div className='flex items-center flex-col'>
                     <h3 className='text-2xl font-bold mt-10'><span>Job</span><span className='text-primary'>Haunt</span></h3>
                     <img src={signup} alt="Album" />
                 </div>
-                <div class="w-full">
+                <div className="w-full">
                     <div className='p-5 text-center'>
-                        <h2 class="text-2xl my-3">Let's Get Started</h2>
+                        <h2 className="text-2xl my-3">Let's Get Started</h2>
                         <p>Sign Up and get access to all the features of <span className='font-semibold'>Job</span><span className='text-primary font-semibold'>Haunt</span></p>
                     </div>
                     <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col px-10'>
-                        <label class="block">
-                            <span class="block text-sm font-medium my-2">Username</span>
+                        <label className="block">
+                            <span className="block text-sm font-medium my-2">Username</span>
                             <input type="text" name='name' {...register("name", { required: true })} className='outline-none border-b-2 border-primary p-2 w-full lg:w-4/5' placeholder='Your Name' />
                             {errors.name?.type === 'required' && <small className='block text-red-600'>Name is required</small>}
                         </label>
-                        <label class="block">
-                            <span class="block text-sm font-medium my-2">Email</span>
+                        <label className="block">
+                            <span className="block text-sm font-medium my-2">Email</span>
                             <input type="email" name='email'  {...register("email", { required: true })} className='outline-none border-b-2 border-primary p-2 w-full lg:w-4/5' placeholder='Your Email' />
                             {errors.email?.type === 'required' && <small className='block text-red-600'>Email is required</small>}
                         </label>
-                        <label class="block">
-                            <span class="block text-sm font-medium my-2">Password</span>
+                        <label className="block">
+                            <span className="block text-sm font-medium my-2">Password</span>
                             <input type="password" name='password' {...register("password", { required: true })} className='outline-none border-b-2 border-primary p-2 w-full lg:w-4/5' placeholder='Password' />
                             {errors.password?.type === 'required' && <small className='block text-red-600'>Password is required</small>}
                         </label>
-                        <label class="my-2 flex items-center">
+                        <label className="my-2 flex items-center">
                             <input onClick={() => setAgree(!agree)} type="checkbox" name="terms" id="terms" className='my-2 checkbox checkbox-primary checkbox-xs' />
                             <small className='ml-2 block text-red-600'>I agree to the Terms and conditions</small>
                         </label>
                         {error && <small className='text-red-600 block'>{error.message.slice(10)}</small>}
-                        <label class="block">
-                            <span class="block text-sm font-medium my-2">Already have an account? <Link to='/login' className='text-primary'>Login</Link></span>
+                        <label className="block">
+                            <span className="block text-sm font-medium my-2">Already have an account? <Link to='/login' className='text-primary'>Login</Link></span>
                         </label>
                         <input disabled={!agree} type="submit" value="Sign Up" className='btn btn-primary mt-2  mx-auto hover:-translate-y-2 duration-200' />
                     </form>

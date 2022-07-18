@@ -14,23 +14,23 @@ const Contact = () => {
                     <h3 className='text-3xl font-semibold'>Get in touch</h3>
                     <p className='text-slate-600'>Start working with <span>Job</span><span className='text-primary'>Haunt</span> that can provide everything you need to generate awareness, drive traffic, connect.</p>
                     <form onSubmit={e => e.preventDefault()}>
-                        <label class="block">
-                            <span class="block text-sm font-medium my-2">Name</span>
-                            <input type="text" placeholder="Your Name" class="input input-bordered w-full rounded-sm" />
+                        <label className="block">
+                            <span className="block text-sm font-medium my-2">Name</span>
+                            <input type="text" placeholder="Your Name" className="input input-bordered w-full rounded-sm" />
                         </label>
                         <div className='flex'>
                             <label className='mr-2 my-2'>
-                                <span class="block text-sm font-medium my-2">Email</span>
-                                <input type="email" placeholder="Email" class="input input-bordered w-full rounded-sm" />
+                                <span className="block text-sm font-medium my-2">Email</span>
+                                <input type="email" placeholder="Email" className="input input-bordered w-full rounded-sm" />
                             </label>
                             <label className='ml-2 my-2'>
-                                <span class="block text-sm font-medium my-2">Subject</span>
-                                <input type="text" placeholder="Subject" class="input input-bordered w-full rounded-sm" />
+                                <span className="block text-sm font-medium my-2">Subject</span>
+                                <input type="text" placeholder="Subject" className="input input-bordered w-full rounded-sm" />
                             </label>
                         </div>
-                        <label class="block my-2">
-                            <span class="block text-sm font-medium my-2">Your Message</span>
-                            <textarea class="textarea textarea-bordered rounded-sm w-full" placeholder="Enter Your Message"></textarea>
+                        <label className="block my-2">
+                            <span className="block text-sm font-medium my-2">Your Message</span>
+                            <textarea className="textarea textarea-bordered rounded-sm w-full" placeholder="Enter Your Message"></textarea>
                         </label>
                         <button className='btn btn-outline btn-primary flex ml-auto my-2'><span className='mr-2'>Send Message </span><BiSend /></button>
                     </form>
