@@ -1,6 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import ForgotPassword from "./Pages/Authentications/ForgotPassword";
 import Login from "./Pages/Authentications/Login";
 import Signup from "./Pages/Authentications/Signup";
@@ -11,6 +13,7 @@ import Jobs from "./Pages/Jobs/Jobs";
 import Navbar from "./Pages/Shared/Navbar/Navbar";
 
 function App() {
+  AOS.init();
   return (
     <Navbar>
       <Routes>

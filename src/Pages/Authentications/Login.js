@@ -44,7 +44,7 @@ const Login = () => {
                         <label className="block my-2">
                             <Link to='/reset-password' className='text-primary'><small>Forgot password?</small></Link>
                         </label>
-                        {error && <small className='text-red-600 block'>{error.message.slice(10)}</small>}
+                        {error && <small className='text-red-600 block'>{error?.message?.slice(10)}</small>}
                         <label className="block">
                             <span className="block text-sm font-medium my-2">Don't have an account? <Link to='/signup' className='text-primary'>Signup</Link></span>
                         </label>

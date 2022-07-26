@@ -1,4 +1,3 @@
-import { async } from '@firebase/util';
 import React, { useState } from 'react';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 
@@ -56,7 +55,7 @@ const Signup = () => {
                             <input onClick={() => setAgree(!agree)} type="checkbox" name="terms" id="terms" className='my-2 checkbox checkbox-primary checkbox-xs' />
                             <small className='ml-2 block text-red-600'>I agree to the Terms and conditions</small>
                         </label>
-                        {error && <small className='text-red-600 block'>{error.message.slice(10)}</small>}
+                        {error && <small className='text-red-600 block'>{error?.message?.slice(10)}</small>}
                         <label className="block">
                             <span className="block text-sm font-medium my-2">Already have an account? <Link to='/login' className='text-primary'>Login</Link></span>
                         </label>

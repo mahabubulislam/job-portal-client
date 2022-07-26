@@ -6,7 +6,6 @@ import Blog from './Blog';
 const Blogs = () => {
     const [blogs, setBlogs] = useState([])
     const [loading, setLoading] = useState(false)
-    const loads = [1,2,3,4,5,6,7,8]
 
     useEffect(() => {
         setLoading(true)
@@ -19,10 +18,11 @@ const Blogs = () => {
     }, [])
     return (
         <>
+            {
+                loading && <Loading />
+            }
             <section className='grid grid-cols-1 md:grid-cols-2 gap-10 w-4/5 my-10 mx-auto'>
-                {
-                    loading && loads.map((index) => <Loading key={index} />)
-                }
+
                 {
                     blogs.map((blog, index) => <Blog key={index} blog={blog}></Blog>)
                 }

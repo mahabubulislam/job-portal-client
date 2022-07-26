@@ -5,6 +5,7 @@ import forgotpassword from '../../assets/images/forgotpassword.png'
 import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { toast } from 'react-toastify';
+import Loading from '../Shared/Loading/Loading';
 const ForgotPassword = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(auth);
@@ -12,7 +13,9 @@ const ForgotPassword = () => {
         await sendPasswordResetEmail(data?.email)
         toast.success('Password reset mail sent. Please check your email');
     };
-
+    if(sending){
+        return <Loading/>
+    }
     return (
         <section className='bg-blue-100'>
             <div className="flex flex-col-reverse lg:flex-row items-center justify-center my-10 p-0 md:p-10 w-full md:w-3/4 mx-auto bg-base-100 shadow-2xl rounded-lg">
@@ -33,6 +36,7 @@ const ForgotPassword = () => {
                             <span className="block text-sm font-medium my-2">Email</span>
                             <input type="email" name='email'  {...register("email", { required: true })} className='outline-none border-b-2 border-primary p-2 w-full' placeholder='Your Email' />
                             {errors.email?.type === 'required' && <small className='block text-red-600'>Email is required</small>}
+                            {error && <small className='text-red-600 block'>{error.message.slice(10)}</small>}
                         </label>
                         <button className='btn mt-4 mx-auto'>Send mail</button>
                         <label className="block mx-auto">

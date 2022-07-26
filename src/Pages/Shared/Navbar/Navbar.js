@@ -9,6 +9,7 @@ import Loading from '../Loading/Loading';
 
 const Navbar = ({ children }) => {
     const [user, loading] = useAuthState(auth)
+    
     if(loading){
         return <Loading/>
     }
