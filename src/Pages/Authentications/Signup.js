@@ -13,11 +13,11 @@ const Signup = () => {
     const [updateProfile, updating] = useUpdateProfile(auth);
     const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
     if (updating || loading) {
-        return <Loading/>
+        return <Loading />
     }
 
     const onSubmit = async data => {
-        createUserWithEmailAndPassword(data?.email, data?.password)
+        await createUserWithEmailAndPassword(data?.email, data?.password)
         await updateProfile({ displayName: data?.name });
     };
     if (user) {

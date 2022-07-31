@@ -30,7 +30,7 @@ const Job = () => {
         </div>
         <div className="card-actions px-10">
           <p>Experience: <small className='text-slate-700'>0-1 years</small></p>
-          <button className='hover:text-primary flex items-center'><span className='mr-2'>Apply Now </span><AiOutlineDoubleRight /></button>
+          <button className='hover:text-primary flex items-center'><span className='mr-2'>View Details </span><AiOutlineDoubleRight /></button>
         </div>
       </div>
     </div>

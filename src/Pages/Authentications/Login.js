@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import login from '../../assets/images/login.png'
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
@@ -9,6 +9,10 @@ import SocialLogin from './SocialLogin';
 const Login = () => {
     const [signInWithEmailAndPassword, user, loading, error,] = useSignInWithEmailAndPassword(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+
     const onSubmit = data => {
         signInWithEmailAndPassword(data?.email, data?.password)
     };
@@ -16,7 +20,7 @@ const Login = () => {
         return <Loading/>
     }
     if(user){
-        return <Navigate to='/'/>
+        navigate(from, { replace: true })
     }
     return (
         <section className='bg-blue-100'>
