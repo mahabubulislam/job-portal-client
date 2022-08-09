@@ -40,18 +40,18 @@ const Contact = () => {
                     <div className='px-10'>
                         <p className='flex items-center text-slate-600'><GoLocation className='mx-2 text-primary' /> <span>Dhaka, Bangladesh</span></p>
                         <p className='flex items-center text-slate-600'><GoMail className='mx-2 text-primary' /> <span>jobhaunt@gmail.com</span></p>
-                        <p className='flex items-center text-slate-600'><BiPhone className='mx-2 text-primary' /><span> +880101020123</span></p>
+                        <p className='flex items-center text-slate-600'><BiPhone className='mx-2 text-primary' /><span>  +880101020123</span></p>
                     </div>
                 </div>
             </div>
-            <MapContainer className='w-full md:h-full' center={[23.8103, 90.4125]} zoom={13} style={{height:'250px'}}>
+            <MapContainer className='w-full' center={[23.8103, 90.4125]} zoom={13} style={{ height: '300px' }}>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
                 />
                 <Marker position={[23.8103, 90.4125]} />
             </MapContainer>
-            <div className='bg-base-200' style={{height:'600px'}}>
+            <div className='bg-base-200'>
                 <Footer />
             </div>
         </section>

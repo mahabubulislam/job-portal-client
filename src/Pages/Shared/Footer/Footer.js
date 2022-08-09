@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <section>
-            <footer class="footer p-10 bg-base-300 text-base-content">
+        <footer>
+            <section class="footer p-10 bg-secondary text-white">
                 <div className='pl-10'>
                     <div className="flex-1 font-bold text-xl from-neutral-content"><span>Job</span><span className='text-primary'>Haunt</span></div>
                     <p>No. 1 Job Portal website in Bangladesh</p>
@@ -31,13 +31,13 @@ const Footer = () => {
                     <Link to='/' class="link link-hover hover:scale-105 duration-300">FAQ'S</Link>
                     <Link to='/' class="link link-hover hover:scale-105 duration-300">Privacy Policy</Link>
                 </div>
-            </footer>
-            <footer class="footer footer-center p-4 bg-accent text-base-content">
+            </section>
+            <section class="footer footer-center p-4 text-base-content">
                 <div>
                     <p>Copyright © 2022 - All right reserved by JobHaunt</p>
                 </div>
-            </footer>
-        </section>
+            </section>
+        </footer>
     );
 };
 

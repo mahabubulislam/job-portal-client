@@ -11,6 +11,8 @@ import Contact from "./Pages/Contact/Contact";
 import Home from "./Pages/Home/Home";
 import Jobs from "./Pages/Jobs/Jobs";
 import Navbar from "./Pages/Shared/Navbar/Navbar";
+import JobDetails from "./Pages/Jobs/JobDetails";
+
 
 function App() {
   AOS.init();
@@ -22,20 +24,21 @@ function App() {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/reset-password" element={<ForgotPassword />}></Route>
         <Route path="/jobs" element={<Jobs />}></Route>
+        <Route path="/jobs/:details" element={<JobDetails />}></Route>
         <Route path="/blog" element={<Blogs />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
       </Routes>
       <ToastContainer
-                position="top-center"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-            />
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </Navbar>
   );
 }
