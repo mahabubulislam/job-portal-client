@@ -35,7 +35,7 @@ const AddImportantLinks = ({ user }) => {
                             <span className="block text-sm font-medium my-2">Link</span>
                             <input type="text" className='input input-bordered w-full' {...register("link")} placeholder="E.g.: https://www.github.com" required />
                         </label>
-                        <button type='submit' className='btn mt-5 text-white'>Add Courses</button>
+                        <button type='submit' className='btn mt-5 text-white'>Add Link</button>
                     </form>
                     <div className="modal-action">
                         <label htmlFor="link-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
