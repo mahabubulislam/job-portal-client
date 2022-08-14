@@ -1,13 +1,18 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { BsFillPencilFill } from 'react-icons/bs';
+import auth from '../../../firebase.init';
+import EditPersonalInfo from './EditPersonalInfo';
 
-const PersonalInfo = () => {
+const PersonalInfo = ({userInfo}) => {
+    const [user] = useAuthState(auth)
     return (
         <div>
-            <h6 className='text-xl font-semibold flex'>Mahabubul Islam <BsFillPencilFill className='ml-3 text-xl cursor-pointer' /></h6>
-            <p className='text-accent'>mahabub2k1@gmail.com</p>
-            <p className='text-accent'>+8801612737388</p>
-            <p className='text-accent'>Dhaka, Bangladesh</p>
+            <h6 className='text-xl font-semibold flex'>{user?.displayName}  <label htmlFor="personal-inf-modal" className="modal-button"><BsFillPencilFill className='ml-3 text-xl cursor-pointer' /></label></h6>
+            <p className='text-accent'>{user?.email}</p>
+            <p className='text-accent'>{userInfo?.phoneNumber && `+${userInfo?.phoneNumber}`}</p>
+            <p className='text-accent'>{userInfo?.address}</p>
+            <EditPersonalInfo user={userInfo}/>
         </div>
     );
 };
