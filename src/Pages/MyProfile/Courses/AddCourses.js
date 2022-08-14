@@ -23,7 +23,7 @@ const AddCourses = ({user}) => {
             <input type="checkbox" id="course-modal" className="modal-toggle" />
             <div className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box">
-                    <h3 className="text-2xl text-secondary text-center font-medium">Courses / Trainings</h3>
+                    <h3 className="text-2xl text-secondary text-center font-medium">Add Courses / Trainings</h3>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <label className="block">
                             <span className="block text-sm font-medium my-2">Course / Training Name</span>

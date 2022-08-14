@@ -27,24 +27,26 @@ const AddEducation = ({ user }) => {
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <label className="block">
                             <span className="block text-sm font-medium my-2">Degree Title</span>
-                            <input type="text" className='input input-bordered w-full' {...register("degree")} placeholder='Your Exam Name'/>
+                            <input type="text" className='input input-bordered w-full' {...register("degree")} placeholder='Your Exam Name' />
                         </label>
                         <label className="block">
                             <span className="block text-sm font-medium my-2">Field of Study</span>
-                            <input type="text" className='input input-bordered w-full' {...register("subject")} placeholder='Your Subject'/>
+                            <input type="text" className='input input-bordered w-full' {...register("subject")} placeholder='Your Subject' />
                         </label>
                         <label className="block">
                             <span className="block text-sm font-medium my-2">Institution Name</span>
                             <input type="text" className='input input-bordered w-full' {...register("institute")} placeholder="Your Institute Name" />
                         </label>
-                        <label className="block">
-                            <span className="block text-sm font-medium my-2">Result</span>
-                            <input type="text" className='input input-bordered w-full' {...register("result")} placeholder="Your CGPA" />
-                        </label>
-                        <label className="block">
-                            <span className="block text-sm font-medium my-2">Year</span>
-                            <input type="text" className='input input-bordered w-full' {...register("year")} placeholder="From - To" />
-                        </label>
+                        <div className='md:flex items-center justify-between'>
+                            <label className="block">
+                                <span className="block text-sm font-medium my-2">Result</span>
+                                <input type="text" className='input input-bordered md:w-4/5' {...register("result")} placeholder="Your CGPA" />
+                            </label>
+                            <label className="block">
+                                <span className="block text-sm font-medium my-2">Year</span>
+                                <input type="text" className='input input-bordered md:w-4/5' {...register("year")} placeholder="From - To" />
+                            </label>
+                        </div>
                         <button type='submit' className='btn mt-5 text-white'>Add Education</button>
                     </form>
                     <div className="modal-action">
