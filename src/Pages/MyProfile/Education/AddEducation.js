@@ -45,7 +45,7 @@ const AddEducation = ({ user }) => {
                             <span className="block text-sm font-medium my-2">Year</span>
                             <input type="text" className='input input-bordered w-full' {...register("year")} placeholder="From - To" />
                         </label>
-                        <button type='submit' className='btn mt-5 text-white'>Add</button>
+                        <button type='submit' className='btn mt-5 text-white'>Add Education</button>
                     </form>
                     <div className="modal-action">
                         <label htmlFor="education-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
