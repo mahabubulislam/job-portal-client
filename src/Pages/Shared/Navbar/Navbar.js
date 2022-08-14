@@ -27,7 +27,7 @@ const Navbar = ({ children }) => {
             <nav className="drawer">
                 <input id="navbar-drawer" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col">
-                    <div className="w-full navbar bg-base-100 px-0 md:px-20 sticky top-0 z-[9999] shadow-md">
+                    <div className="w-full navbar bg-base-100 px-0 md:px-20 top-0 shadow-md">
                         <div className='navbar-start'>
                             <div className="flex-1 px-2 mx-2 font-bold text-xl from-neutral-content"><span>Job</span><span className='text-primary'>Haunt</span></div>
                         </div>

@@ -39,7 +39,7 @@ const AddEducation = ({ user }) => {
                         </label>
                         <label className="block">
                             <span className="block text-sm font-medium my-2">Result</span>
-                            <input type="number" className='input input-bordered w-full' {...register("result")} placeholder="Your CGPA" />
+                            <input type="text" className='input input-bordered w-full' {...register("result")} placeholder="Your CGPA" />
                         </label>
                         <label className="block">
                             <span className="block text-sm font-medium my-2">Year</span>
