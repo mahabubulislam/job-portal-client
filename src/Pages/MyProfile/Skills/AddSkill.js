@@ -10,7 +10,6 @@ const AddSkill = ({user}) => {
             skill: data
         })
             .then(res => {
-                console.log(res);
                 if (res.data.modifiedCount === 1) {
                     toast.success('Successfully Added')
                     reset()
