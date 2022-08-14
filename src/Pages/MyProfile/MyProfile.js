@@ -34,17 +34,17 @@ const MyProfile = () => {
             <section className='my-10 p-3 md:p-20 border rounded-md'>
                 <PersonalInfo userInfo={userInfo} />
                 <div className="divider"></div>
-                <Education />
+                <Education userInfo={userInfo}/>
                 <div className="divider"></div>
-                <Experience />
+                <Experience userInfo={userInfo}/>
                 <div className="divider"></div>
-                <Skills />
+                <Skills userInfo={userInfo}/>
                 <div className="divider"></div>
-                <Courses />
+                <Courses userInfo={userInfo}/>
                 <div className="divider"></div>
-                <Projects />
+                <Projects userInfo={userInfo}/>
                 <div className="divider"></div>
-                <ImportantLinks />
+                <ImportantLinks userInfo={userInfo}/>
             </section>
         </section>
     );
