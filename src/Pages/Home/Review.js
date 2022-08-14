@@ -4,7 +4,7 @@ import Rating from 'react-rating';
 
 const Review = () => {
     return (
-        <div className="py-8 px-8 mt-20 flex-col justify-center items w-4/5 md:w-1/3 mx-auto rounded-md">
+        <div className="py-8 px-8 mt-12 flex-col justify-center items w-4/5 md:w-1/3 mx-auto rounded-md">
             <img className=" mx-auto h-16 w-16 rounded-full -mt-16 " src='https://api.lorem.space/image/face?hash=92310' alt="Customer" />
             <div className="text-center">
                 <div>
@@ -12,7 +12,7 @@ const Review = () => {
                         Mahabubul Islam
                     </h6>
                     <p>Frontend Developer</p>
-                    <div className='my-3'>
+                    <div className='my-2'>
                         <Rating
                             initialRating={5}
                             emptySymbol={<BsStarFill></BsStarFill>}

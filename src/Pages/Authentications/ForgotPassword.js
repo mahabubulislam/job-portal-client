@@ -28,7 +28,7 @@ const ForgotPassword = () => {
                         <h2 className="text-2xl my-3">Forgot password ?</h2>
                         <p>Reset your password with <span className='font-semibold'>Job</span><span className='text-accent font-semibold'>Haunt</span></p>
                     </div>
-                    <div className='p-3 text-center bg-accent w-3/5 mx-auto rounded-lg'>
+                    <div className='p-3 text-center bg-info w-3/5 mx-auto rounded-lg'>
                         <p>Enter your Email and instructions will be sent to you!</p>
                     </div>
                     <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col p-10'>

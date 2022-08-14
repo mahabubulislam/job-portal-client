@@ -9,8 +9,8 @@ const Reviews = () => {
     const reviews = [1,2,3,4,5,6,7]
     return (
         <section>
-            <h3 className='text-3xl text-slate-400 font-bold text-center'>Happy Candidates</h3>
-            <p className='text-slate-400 text-center'>Our happy candidates got their dream jobs from JobHaunt</p>
+            <h3 className='text-3xl text-secondary font-bold text-center'>Happy Candidates</h3>
+            <p className='text-slate-500 mt-3 text-center'>Our happy candidates got their dream jobs from JobHaunt</p>
             <Swiper
                 spaceBetween={30}
                 centeredSlides={true}

@@ -5,7 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import login from '../../assets/images/login.png'
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
-import SocialLogin from './SocialLogin';
+
 const Login = () => {
     const [signInWithEmailAndPassword, user, loading, error,] = useSignInWithEmailAndPassword(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -42,7 +42,7 @@ const Login = () => {
                         </label>
                         <label className="block">
                             <span className="after:content-['*'] after:ml-0.5 after:text-red-600 block text-sm font-medium my-2">Password</span>
-                            <input type="password" name='password' {...register("password", { required: true })} className='outline-none border-b-2 border-primary p-2 w-full lg:w-4/5' placeholder='Password' />
+                            <input type="password" name='password' {...register("password", { required: true })} className='outline-none border-b-2 border-primary p-2 w-full lg:w-4/5' placeholder='Password' autoComplete='disabled'/>
                             {errors.password?.type === 'required' && <small className='block text-red-600'>Password is required</small>}
                         </label>
                         <label className="block my-2">
@@ -54,7 +54,6 @@ const Login = () => {
                         </label>
                         <input type="submit" value="Sign In" className='btn btn-primary mt-2 mx-auto hover:-translate-y-2 duration-200' />
                     </form>
-                    <SocialLogin />
                 </div>
             </div>
         </section>

@@ -1,5 +1,4 @@
 import React from 'react';
-import { BsFillPencilFill } from 'react-icons/bs';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 
 const Skills = () => {
