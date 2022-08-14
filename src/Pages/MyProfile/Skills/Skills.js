@@ -1,7 +1,8 @@
 import React from 'react';
 import { RiDeleteBin6Line } from 'react-icons/ri';
+import AddSkill from './AddSkill';
 
-const Skills = () => {
+const Skills = ({userInfo}) => {
     return (
         <div className='flex flex-col lg:flex-row justify-between items-baseline text-accent min-w-min'>
             <p className="font-medium uppercase flex-1">Skills</p>
@@ -20,8 +21,9 @@ const Skills = () => {
                         <RiDeleteBin6Line className='cursor-pointer'/>
                     </div>
                 </div>
-                <button className='btn btn-sm text-white mt-5'>+ Add Skills</button>
+                <label htmlFor="skill-modal" className="modal-button btn btn-sm mt-2 text-white">+ Add Skills</label>
             </div>
+            <AddSkill user={userInfo}/>
         </div>
     );
 };
