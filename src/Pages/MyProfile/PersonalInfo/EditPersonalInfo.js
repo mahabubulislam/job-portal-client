@@ -27,11 +27,11 @@ const EditPersonalInfo = ({ user }) => {
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <label className="block">
                             <span className="block text-sm font-medium my-2">Name</span>
-                            <input type="text" className='input input-bordered w-full' disabled value={user?.name} />
+                            <input type="text" className='input input-bordered w-full' disabled defaultValue={user?.name} />
                         </label>
                         <label className="block">
                             <span className="block text-sm font-medium my-2">Email</span>
-                            <input type="text" className='input input-bordered w-full' disabled value={user?.email} />
+                            <input type="text" className='input input-bordered w-full' disabled defaultValue={user?.email} />
                         </label>
                         <label className="block">
                             <span className="block text-sm font-medium my-2">Phone</span>

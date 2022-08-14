@@ -39,8 +39,8 @@ const Education = ({ userInfo }) => {
             <p className="font-medium uppercase flex-1">Education</p>
             <div className='flex-[2]'>
                 {
-                    educations && educations.map(education =>
-                        <div className='flex justify-between items-baseline'>
+                    educations && educations.map((education,index) =>
+                        <div key={index} className='flex justify-between items-baseline'>
                             <div className='my-3'>
                                 <p className="font-semibold text-secondary"><span>{education?.degree}</span>, {education?.subject}</p>
                                 <p>{education?.institute}</p>
