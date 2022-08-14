@@ -3,7 +3,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
-const AddSkill = ({user}) => {
+const AddSkill = ({user, refetch}) => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = async data => {
         axios.patch(`http://localhost:5000/users/skills/${user?.email}`, {
@@ -12,6 +12,7 @@ const AddSkill = ({user}) => {
             .then(res => {
                 if (res.data.modifiedCount === 1) {
                     toast.success('Successfully Added')
+                    refetch()
                     reset()
                 }
                 else {

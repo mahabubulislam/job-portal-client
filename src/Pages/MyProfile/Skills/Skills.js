@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import AddSkill from './AddSkill';
 
-const Skills = ({ userInfo }) => {
+const Skills = ({ userInfo, refetch }) => {
     const skills = userInfo?.skills
     const deleteSwal = withReactContent(Swal);
     const deleteSkill = name => {
@@ -22,6 +22,7 @@ const Skills = ({ userInfo }) => {
                 })
                     .then(res => {
                         if (res.data.modifiedCount === 1) {
+                            refetch()
                             toast.success('Successfully Deleted')
                         }
                         else {
@@ -47,7 +48,7 @@ const Skills = ({ userInfo }) => {
                 </div>
                 <label htmlFor="skill-modal" className="modal-button btn btn-sm mt-2 text-white">+ Add Skills</label>
             </div>
-            <AddSkill user={userInfo} />
+            <AddSkill user={userInfo} refetch={refetch}/>
         </div>
     );
 };

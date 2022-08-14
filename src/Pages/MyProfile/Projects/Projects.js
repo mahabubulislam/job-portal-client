@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import AddProject from './AddProject';
 
-const Projects = ({ userInfo }) => {
+const Projects = ({ userInfo , refetch}) => {
     const projects = userInfo?.projects;
     const deleteSwal = withReactContent(Swal);
     const deleteProject = name => {
@@ -24,6 +24,7 @@ const Projects = ({ userInfo }) => {
                     .then(res => {
                         console.log(res)
                         if (res.data.modifiedCount === 1) {
+                            refetch()
                             toast.success('Successfully Deleted')
                         }
                         else {
@@ -52,7 +53,7 @@ const Projects = ({ userInfo }) => {
                                     }
                                 </ul>
                             </div>
-                            <RiDeleteBin6Line onClick={()=>deleteProject(project?.name)} className='mx-2 text-xl cursor-pointer' />
+                            <RiDeleteBin6Line onClick={()=>deleteProject(project?.name)} className='mx-2 text-4xl cursor-pointer' />
                         </div>
                     )
                 }
@@ -62,7 +63,7 @@ const Projects = ({ userInfo }) => {
                 <BsFillPencilFill className='mx-2 text-xl cursor-pointer' />
                 <RiDeleteBin6Line className='mx-2 text-xl cursor-pointer' />
             </div>
-            <AddProject user={userInfo} />
+            <AddProject user={userInfo} refetch={refetch}/>
         </div>
     );
 };

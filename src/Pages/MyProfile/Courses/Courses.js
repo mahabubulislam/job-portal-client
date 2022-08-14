@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import AddCourses from './AddCourses';
 
-const Courses = ({ userInfo }) => {
+const Courses = ({ userInfo , refetch}) => {
     const courses = userInfo?.courses;
     const deleteSwal = withReactContent(Swal);
     const deleteCourse = name => {
@@ -22,8 +22,8 @@ const Courses = ({ userInfo }) => {
                     course: name
                 })
                     .then(res => {
-                        console.log(res)
                         if (res.data.modifiedCount === 1) {
+                            refetch()
                             toast.success('Successfully Deleted')
                         }
                         else {
@@ -55,7 +55,7 @@ const Courses = ({ userInfo }) => {
                 <BsFillPencilFill className='mx-2 text-xl cursor-pointer' />
                 <RiDeleteBin6Line className='mx-2 text-xl cursor-pointer' />
             </div>
-            <AddCourses user={userInfo} />
+            <AddCourses user={userInfo} refetch={refetch} />
         </div>
     );
 };

@@ -1,3 +1,4 @@
+import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import React from 'react';
 import { useEffect } from 'react';
@@ -5,6 +6,7 @@ import { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { BsFillInfoCircleFill } from 'react-icons/bs';
 import auth from '../../firebase.init';
+import Loading from '../Shared/Loading/Loading';
 import Courses from './Courses/Courses';
 import Education from './Education/Education';
 import Experience from './Experience/Experience';
@@ -14,13 +16,12 @@ import Projects from './Projects/Projects';
 import Skills from './Skills/Skills';
 
 const MyProfile = () => {
-    const [user] = useAuthState(auth)
-    const [userInfo, setUserInfo] = useState({})
-    useEffect(() => {
-        axios.get(`http://localhost:5000/users/${user?.email}`)
-            .then(res => setUserInfo(res.data))
-    }, [])
-
+    const [user] = useAuthState(auth);
+    const { data , isLoading, refetch} = useQuery(['users'], () => axios.get(`http://localhost:5000/users/${user?.email}`))
+    if(isLoading){
+        return <Loading/>
+    }
+    const userInfo = data?.data;
     return (
         <section className='w-full md:w-4/5 mx-auto py-10'>
             <section className='p-8 border rounded-md bg-blue-100 text-primary'>
@@ -32,19 +33,19 @@ const MyProfile = () => {
             </section>
             <h4 className="text-3xl font-bold text-center text-secondary my-10">Resume</h4>
             <section className='my-10 p-3 md:p-20 border rounded-md'>
-                <PersonalInfo userInfo={userInfo} />
+                <PersonalInfo userInfo={userInfo} refetch={refetch} />
                 <div className="divider"></div>
-                <Education userInfo={userInfo}/>
+                <Education userInfo={userInfo} refetch={refetch}/>
                 <div className="divider"></div>
-                <Experience userInfo={userInfo}/>
+                <Experience userInfo={userInfo} refetch={refetch}/>
                 <div className="divider"></div>
-                <Skills userInfo={userInfo}/>
+                <Skills userInfo={userInfo} refetch={refetch}/>
                 <div className="divider"></div>
-                <Courses userInfo={userInfo}/>
+                <Courses userInfo={userInfo} refetch={refetch}/>
                 <div className="divider"></div>
-                <Projects userInfo={userInfo}/>
+                <Projects userInfo={userInfo} refetch={refetch}/>
                 <div className="divider"></div>
-                <ImportantLinks userInfo={userInfo}/>
+                <ImportantLinks userInfo={userInfo} refetch={refetch}/>
             </section>
         </section>
     );

@@ -3,7 +3,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
-const AddImportantLinks = ({ user }) => {
+const AddImportantLinks = ({ user, refetch }) => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = async data => {
         axios.patch(`http://localhost:5000/users/links/${user?.email}`, {
@@ -13,6 +13,7 @@ const AddImportantLinks = ({ user }) => {
                 console.log(res);
                 if (res.data.modifiedCount === 1) {
                     toast.success('Successfully Added')
+                    refetch()
                     reset()
                 }
                 else {

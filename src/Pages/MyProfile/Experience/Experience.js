@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import AddExperience from './AddExperience';
 
-const Experience = ({ userInfo }) => {
+const Experience = ({ userInfo, refetch }) => {
     const experiences = userInfo?.experiences;
     const deleteSwal = withReactContent(Swal);
     const deleteExperience = company => {
@@ -24,6 +24,7 @@ const Experience = ({ userInfo }) => {
                     .then(res => {
                         console.log(res)
                         if (res.data.modifiedCount === 1) {
+                            refetch()
                             toast.success('Successfully Deleted')
                         }
                         else {
@@ -54,7 +55,7 @@ const Experience = ({ userInfo }) => {
                 <BsFillPencilFill className='mx-2 text-xl cursor-pointer' />
                 <RiDeleteBin6Line className='mx-2 text-xl cursor-pointer' />
             </div>
-            <AddExperience user={userInfo} />
+            <AddExperience user={userInfo} refetch={refetch}/>
         </div>
     );
 };

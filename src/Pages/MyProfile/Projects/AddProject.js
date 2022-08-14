@@ -3,8 +3,8 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
-const AddProject = ({ user }) => {
-    const { register, handleSubmit } = useForm();
+const AddProject = ({ user, refetch }) => {
+    const { register, handleSubmit, reset } = useForm();
     const onSubmit = async data => {
         console.log(data);
         axios.patch(`http://localhost:5000/users/projects/${user?.email}`, {
@@ -12,6 +12,8 @@ const AddProject = ({ user }) => {
         })
             .then(res => {
                 if (res.data.modifiedCount === 1) {
+                    refetch()
+                    reset()
                     toast.success('Successfully Added')
                 }
                 else {

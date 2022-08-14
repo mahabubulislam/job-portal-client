@@ -3,8 +3,8 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
-const AddExperience = ({user}) => {
-    const { register, handleSubmit } = useForm();
+const AddExperience = ({user, refetch}) => {
+    const { register, handleSubmit, reset } = useForm();
     const onSubmit = async data => {
         axios.patch(`http://localhost:5000/users/experiences/${user?.email}`, {
             experience: data
@@ -13,6 +13,8 @@ const AddExperience = ({user}) => {
                 console.log(res);
                 if (res.data.modifiedCount === 1) {
                     toast.success('Successfully Added')
+                    refetch()
+                    reset()
                 }
                 else {
                     toast('Something went wrong, Please try again')

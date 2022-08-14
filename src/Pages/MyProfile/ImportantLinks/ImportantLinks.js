@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import AddImportantLinks from './AddImportantLinks';
 
-const ImportantLinks = ({ userInfo }) => {
+const ImportantLinks = ({ userInfo, refetch }) => {
     const links = userInfo?.links;
     const deleteSwal = withReactContent(Swal);
     const deleteLink = name => {
@@ -23,6 +23,7 @@ const ImportantLinks = ({ userInfo }) => {
                 })
                     .then(res => {
                         if (res.data.modifiedCount === 1) {
+                            refetch()
                             toast.success('Successfully Deleted')
                         }
                         else {
@@ -53,7 +54,7 @@ const ImportantLinks = ({ userInfo }) => {
                 <BsFillPencilFill className='mx-2 text-xl cursor-pointer' />
                 <RiDeleteBin6Line className='mx-2 text-xl cursor-pointer' />
             </div>
-            <AddImportantLinks user={userInfo} />
+            <AddImportantLinks user={userInfo} refetch={refetch}/>
         </div>
     );
 };

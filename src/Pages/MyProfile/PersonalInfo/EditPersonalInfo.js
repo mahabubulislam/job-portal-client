@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
-const EditPersonalInfo = ({ user }) => {
+const EditPersonalInfo = ({ user , refetch}) => {
     const { register, handleSubmit } = useForm();
     const onSubmit = async data => {
         axios.patch(`http://localhost:5000/users/${user?.email}`,{
@@ -11,6 +11,7 @@ const EditPersonalInfo = ({ user }) => {
         })
         .then(res=>{
             if(res.data.modifiedCount===1){
+                refetch()
                 toast.success('Successfully Updated')
             }
             else{
