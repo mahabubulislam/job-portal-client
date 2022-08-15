@@ -49,13 +49,13 @@ const Experience = ({ userInfo, refetch }) => {
                             <RiDeleteBin6Line onClick={()=>deleteExperience(experience?.company)} className='mx-2 text-xl cursor-pointer' />
                         </div>)
                 }
-                <label htmlFor="experience-modal" className="modal-button btn btn-sm text-white">+ Add Experience</label>
+                {userInfo?.role==='Candidate' &&   <label htmlFor="experience-modal" className="modal-button btn btn-sm text-white">+ Add Experience</label>}
             </div>
             <div className='lg:flex invisible'>
                 <BsFillPencilFill className='mx-2 text-xl cursor-pointer' />
                 <RiDeleteBin6Line className='mx-2 text-xl cursor-pointer' />
             </div>
-            <AddExperience user={userInfo} refetch={refetch}/>
+            {userInfo?.role==='Candidate' && <AddExperience user={userInfo} refetch={refetch}/> }
         </div>
     );
 };

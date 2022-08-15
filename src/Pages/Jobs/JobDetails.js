@@ -3,7 +3,7 @@ import { AiOutlineHome, AiOutlinePlayCircle } from 'react-icons/ai';
 import { BsBoxArrowUpRight, BsFillInfoCircleFill } from 'react-icons/bs';
 import { FaMoneyCheckAlt } from 'react-icons/fa'
 import { GiSandsOfTime } from 'react-icons/gi'
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const JobDetails = () => {
     const { details } = useParams()
@@ -68,7 +68,7 @@ const JobDetails = () => {
                     <p className="font-medium">Vacancy</p>
                     <p>3</p>
                 </div>
-                <button className="btn btn-primary block mt-5 mx-auto">Apply Now</button>
+                <button className="btn btn-primary block mt-5 mx-auto"><Link to={`/jobs/${details}/apply`}>Apply Now</Link></button>
             </section>
             <section className='p-8 border rounded-md bg-yellow-100'>
                 <p className="font-medium flex items-center mb-3"><BsFillInfoCircleFill className='mr-2'/>Save yourself from fraud!</p>

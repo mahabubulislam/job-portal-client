@@ -5,7 +5,7 @@ import EditPersonalInfo from './EditPersonalInfo';
 const PersonalInfo = ({userInfo, refetch}) => {
     return (
         <div>
-            <h6 className='text-xl font-semibold flex'>{userInfo?.name}  <label htmlFor="personal-inf-modal" className="modal-button"><BsFillPencilFill className='ml-3 text-xl cursor-pointer' /></label></h6>
+            <h6 className='text-xl font-semibold flex'>{userInfo?.name} {userInfo?.role==='Candidate' &&  <label htmlFor="personal-inf-modal" className="modal-button"><BsFillPencilFill className='ml-3 text-xl cursor-pointer' /></label>} </h6>
             <p className='text-accent'>{userInfo?.email}</p>
             <p className='text-accent'>{userInfo?.phoneNumber}</p>
             <p className='text-accent'>{userInfo?.address}</p>

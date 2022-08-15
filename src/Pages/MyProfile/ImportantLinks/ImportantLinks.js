@@ -48,13 +48,14 @@ const ImportantLinks = ({ userInfo, refetch }) => {
                         </div>
                     )
                 }
-                <label htmlFor="link-modal" className="modal-button btn btn-sm text-white">+ Add Link</label>
+                {userInfo?.role==='Candidate' &&  <label htmlFor="link-modal" className="modal-button btn btn-sm text-white">+ Add Link</label>}
             </div>
             <div className='invisible lg:flex'>
                 <BsFillPencilFill className='mx-2 text-xl cursor-pointer' />
                 <RiDeleteBin6Line className='mx-2 text-xl cursor-pointer' />
             </div>
-            <AddImportantLinks user={userInfo} refetch={refetch}/>
+            {userInfo?.role==='Candidate' &&  <AddImportantLinks user={userInfo} refetch={refetch}/>}
+            
         </div>
     );
 };

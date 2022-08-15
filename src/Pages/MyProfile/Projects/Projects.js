@@ -53,11 +53,11 @@ const Projects = ({ userInfo , refetch}) => {
                                     }
                                 </ul>
                             </div>
-                            <RiDeleteBin6Line onClick={()=>deleteProject(project?.name)} className='mx-2 text-4xl cursor-pointer' />
+                            {userInfo?.role==='Candidate' &&  <RiDeleteBin6Line onClick={()=>deleteProject(project?.name)} className='mx-2 text-4xl cursor-pointer' /> }
                         </div>
                     )
                 }
-                <label htmlFor="project-modal" className="modal-button btn btn-sm text-white">+ Add Project</label>
+                {userInfo?.role==='Candidate' && <label htmlFor="project-modal" className="modal-button btn btn-sm text-white">+ Add Project</label> } 
             </div>
             <div className='invisible lg:flex'>
                 <BsFillPencilFill className='mx-2 text-xl cursor-pointer' />

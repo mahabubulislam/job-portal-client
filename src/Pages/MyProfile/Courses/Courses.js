@@ -45,11 +45,11 @@ const Courses = ({ userInfo , refetch}) => {
                                 <p>{course?.institute}</p>
                                 <small className='block'>{course?.duration}</small>
                             </div>
-                            <RiDeleteBin6Line onClick={()=>deleteCourse(course?.name)} className='mx-2 text-xl cursor-pointer' />
+                            {userInfo?.role==='Candidate' && <RiDeleteBin6Line onClick={()=>deleteCourse(course?.name)} className='mx-2 text-xl cursor-pointer' />}
                         </div>
                     )
                 }
-                <label htmlFor="course-modal" className="modal-button btn btn-sm text-white">+ Add Courses/Trainings</label>
+               {userInfo?.role==='Candidate' &&  <label htmlFor="course-modal" className="modal-button btn btn-sm text-white">+ Add Courses/Trainings</label>}
             </div>
             <div className='hidden lg:flex invisible'>
                 <BsFillPencilFill className='mx-2 text-xl cursor-pointer' />
