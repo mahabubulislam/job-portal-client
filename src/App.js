@@ -15,6 +15,7 @@ import JobDetails from "./Pages/Jobs/JobDetails";
 import RequireAuth from "./Pages/Authentications/RequireAuth";
 import MyProfile from "./Pages/MyProfile/MyProfile";
 import PostJobs from "./Pages/Jobs/PostJobs";
+import ApplyJobs from "./Pages/Jobs/ApplyJobs";
 
 
 function App() {
@@ -27,11 +28,12 @@ function App() {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/reset-password" element={<ForgotPassword />}></Route>
         <Route path="/jobs" element={<Jobs />}></Route>
-        <Route path="/jobs/:details" element={<JobDetails />}></Route>
+        <Route path="/jobs/:id" element={<JobDetails />}></Route>
         <Route path="/blog" element={<Blogs />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
         <Route path="my-profile" element={<RequireAuth><MyProfile/></RequireAuth>}></Route>
         <Route path="post-job" element={<RequireAuth><PostJobs/></RequireAuth>}></Route>
+        <Route path="jobs/apply/:id" element={<RequireAuth><ApplyJobs/></RequireAuth>}></Route>
       </Routes>
       <ToastContainer
         position="top-center"

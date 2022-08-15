@@ -41,6 +41,11 @@ const PostJobs = () => {
                         {errors.location?.type === 'required' && <small className='block text-red-600'>Company Location is required</small>}
                     </label>
                     <label className="block">
+                        <span className="block text-sm font-medium my-2">Company Website</span>
+                        <input type="text" className='input input-bordered w-full' {...register("link")} placeholder='Company Website' />
+                        {errors.link?.type === 'required' && <small className='block text-red-600'>Company Website is required</small>}
+                    </label>
+                    <label className="block">
                         <span className="block text-sm font-medium my-2">Company Logo</span>
                         <input type="text" className='input input-bordered w-full' {...register("logo")} placeholder='Company Logo Link' />
                     </label>
@@ -63,6 +68,11 @@ const PostJobs = () => {
                         <span className="block text-sm font-medium my-2">Required Skills</span>
                         <input type="text" className='input input-bordered w-full' {...register("skills")} placeholder="E.g.: React, Node, Express..." />
                         {errors.skills?.type === 'required' && <small className='block text-red-600'>Skills is required</small>}
+                    </label>
+                    <label className="block">
+                        <span className="block text-sm font-medium my-2">Job Location</span>
+                        <input type="text" className='input input-bordered w-full' {...register("jobLocation")} placeholder="E.g.: Work From Home" />
+                        {errors.jobLocation?.type === 'required' && <small className='block text-red-600'>Skills is required</small>}
                     </label>
                     <div className='md:grid grid-cols-3 gap-3 mt-3'>
                         <label className="block">

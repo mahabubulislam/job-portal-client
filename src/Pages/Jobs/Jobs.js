@@ -1,12 +1,20 @@
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 import React from 'react';
+import useJobs from '../../hooks/useJobs';
+import Loading from '../Shared/Loading/Loading';
 import Job from './Job';
 
 const Jobs = () => {
-    const a = [1,2,3,4]
+    const [jobs, isLoading] = useJobs()
+    if(isLoading){
+        return <Loading/>
+    }
+   
     return (
         <section className='p-5 md:p-10 lg:px-20'>
             {
-                a.map(b=><Job/>)
+                jobs?.map(job=><Job key={job._id} job={job}/>)
             }
         </section>
     );
