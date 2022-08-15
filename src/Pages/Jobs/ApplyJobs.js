@@ -10,7 +10,7 @@ import MyProfile from '../MyProfile/MyProfile';
 import Loading from '../Shared/Loading/Loading';
 
 const ApplyJobs = () => {
-    const [user, loading] = useAuthState(auth)
+    const [users, loading] = useAuthState(auth)
     const { id } = useParams()
     const { data, isLoading } = useQuery(['job'], () => axios(`http://localhost:5000/jobs/${id}`))
   
@@ -19,9 +19,13 @@ const ApplyJobs = () => {
     }
     const { title, company } = data?.data
     const handleApplyJob = () => {
-        if (user?.email) {
+        const user ={
+            email:users?.email,
+            name:users?.displayName
+        }
+        if (users?.email) {
             axios.patch(`http://localhost:5000/jobs/${company}`, {
-                user: user?.email
+                user
             })
                 .then(res => {
                     if (res.data.message === 'exists') {

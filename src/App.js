@@ -16,6 +16,8 @@ import RequireAuth from "./Pages/Authentications/RequireAuth";
 import MyProfile from "./Pages/MyProfile/MyProfile";
 import PostJobs from "./Pages/Jobs/PostJobs";
 import ApplyJobs from "./Pages/Jobs/ApplyJobs";
+import Candidates from "./Pages/Candidates/Candidates";
+import CandidateResume from "./Pages/Candidates/CandidatesInfo/CandidateResume";
 
 
 function App() {
@@ -31,9 +33,11 @@ function App() {
         <Route path="/jobs/:id" element={<JobDetails />}></Route>
         <Route path="/blog" element={<Blogs />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
-        <Route path="my-profile" element={<RequireAuth><MyProfile/></RequireAuth>}></Route>
-        <Route path="post-job" element={<RequireAuth><PostJobs/></RequireAuth>}></Route>
-        <Route path="jobs/apply/:id" element={<RequireAuth><ApplyJobs/></RequireAuth>}></Route>
+        <Route path="/candidates" element={<RequireAuth><Candidates/></RequireAuth>}></Route>
+        <Route path="/candidates/:email" element={<RequireAuth><CandidateResume/></RequireAuth>}></Route>
+        <Route path="/my-profile" element={<RequireAuth><MyProfile/></RequireAuth>}></Route>
+        <Route path="/post-job" element={<RequireAuth><PostJobs/></RequireAuth>}></Route>
+        <Route path="/jobs/apply/:id" element={<RequireAuth><ApplyJobs/></RequireAuth>}></Route>
       </Routes>
       <ToastContainer
         position="top-center"

@@ -10,13 +10,13 @@ import useUser from '../../hooks/useUser';
 import Loading from '../Shared/Loading/Loading';
 
 const JobDetails = () => {
-    const { id } = useParams()
     const [userInfo] = useUser()
+    const { id } = useParams()
     const { data, isLoading } = useQuery(['job'], () => axios(`http://localhost:5000/jobs/${id}`))
-    if (isLoading) {
+    if (isLoading ) {
         return <Loading />
     }
-    const { title, company, about, link, jobLocation, requirements, description,  date, deadline, email, salary, skills, vacancy } = data?.data
+    const { title, company, about, link, jobLocation, requirements, description, date, deadline, salary, skills, vacancy } = data?.data
 
     return (
         <section className='w-4/5 mx-auto py-10'>
@@ -50,30 +50,30 @@ const JobDetails = () => {
                     <p className='text-accent'>Key Responsibilities</p>
                     <ol className='list-decimal p-4'>
                         {
-                            description?.split('. ').map((d,index)=><li key={index}>{d}</li>)
+                            description?.split('. ').map((d, index) => <li key={index}>{d}</li>)
                         }
                     </ol>
                 </div>
                 <div className='mt-5'>
                     <p className="font-semibold my-2">Required Skills</p>
                     {
-                        skills.split(',').map(skill=><div key={skill} className="btn btn-sm mr-2">{skill}</div>)
+                        skills.split(',').map(skill => <div key={skill} className="btn btn-sm mr-2">{skill}</div>)
                     }
-                   
+
                 </div>
                 <div className='mt-5'>
                     <p className="font-semibold">Who can apply</p>
                     <ol className='list-decimal px-4'>
-                      {
-                        requirements.split('. ').map((req,index)=><li key={index}>{req}</li>)
-                      }
+                        {
+                            requirements.split('. ').map((req, index) => <li key={index}>{req}</li>)
+                        }
                     </ol>
                 </div>
                 <div className='mt-5'>
                     <p className="font-medium">Vacancy</p>
                     <p>{vacancy}</p>
                 </div>
-               {userInfo?.role!=='Requiter' && <button className="btn btn-primary block mt-5 mx-auto"><Link to={`/jobs/apply/${id}`}>Apply Now</Link></button>}
+                {userInfo?.role !== 'Requiter' && <button className="btn btn-primary block mt-5 mx-auto"><Link to={`/jobs/apply/${id}`}>Apply Now</Link></button>}
             </section>
             <section className='p-8 border rounded-md bg-yellow-100'>
                 <p className="font-medium flex items-center mb-3"><BsFillInfoCircleFill className='mr-2' />Save yourself from fraud!</p>
