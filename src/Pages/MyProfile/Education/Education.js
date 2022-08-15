@@ -36,7 +36,7 @@ const Education = ({ userInfo, refetch }) => {
     }
     return (
         <div className='flex flex-col lg:flex-row justify-between items-baseline text-accent'>
-            <p className="font-medium uppercase flex-1">Add Education</p>
+            <p className="font-medium uppercase flex-1">Education</p>
             <div className='flex-[2]'>
                 {
                     educations && educations.map((education,index) =>

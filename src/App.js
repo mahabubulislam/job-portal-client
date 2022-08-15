@@ -14,6 +14,7 @@ import Navbar from "./Pages/Shared/Navbar/Navbar";
 import JobDetails from "./Pages/Jobs/JobDetails";
 import RequireAuth from "./Pages/Authentications/RequireAuth";
 import MyProfile from "./Pages/MyProfile/MyProfile";
+import PostJobs from "./Pages/Jobs/PostJobs";
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <Route path="/blog" element={<Blogs />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
         <Route path="my-profile" element={<RequireAuth><MyProfile/></RequireAuth>}></Route>
+        <Route path="post-job" element={<RequireAuth><PostJobs/></RequireAuth>}></Route>
       </Routes>
       <ToastContainer
         position="top-center"
