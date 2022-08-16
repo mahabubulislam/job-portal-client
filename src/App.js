@@ -18,6 +18,7 @@ import PostJobs from "./Pages/Jobs/PostJobs";
 import ApplyJobs from "./Pages/Jobs/ApplyJobs";
 import Candidates from "./Pages/Candidates/Candidates";
 import CandidateResume from "./Pages/Candidates/CandidatesInfo/CandidateResume";
+import SearchJobs from "./Pages/Jobs/SearchJobs";
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route path="/reset-password" element={<ForgotPassword />}></Route>
         <Route path="/jobs" element={<Jobs />}></Route>
         <Route path="/jobs/:id" element={<JobDetails />}></Route>
+        <Route path="/job/search/:title" element={<SearchJobs />}></Route>
         <Route path="/blog" element={<Blogs />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
         <Route path="/candidates" element={<RequireAuth><Candidates/></RequireAuth>}></Route>

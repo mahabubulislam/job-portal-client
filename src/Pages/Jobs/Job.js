@@ -6,7 +6,7 @@ import { Link, useLocation } from 'react-router-dom';
 const Job = ({ job }) => {
   const { title, company, location, logo, experience, salary, type, _id } = job
   const locations = useLocation()
-
+console.log(locations)
   return (
     <div className="card my-10 card-compact bg-base-100 hover:shadow-xl rounded-md after:content-['Hello'] after:h-20 after:w-20 after:bg-primary after:absolute after:-m-10 after:-rotate-45 border hover:border-primary hover:-translate-y-2 ease-in-out duration-300">
       <h1 className='absolute text-xl top-2 left-2 text-white z-10'><AiFillStar /></h1>
@@ -33,7 +33,7 @@ const Job = ({ job }) => {
         </div>
         <div className="card-actions px-10">
           <p>Experience: <small className='text-slate-700'>{experience || '0'} years</small></p>
-          <Link to={`${locations.pathname === '/' ? `jobs/${_id}` : `${_id}`}`} className='hover:text-primary flex items-center'><span className='mr-2'>View Details </span><AiOutlineDoubleRight /></Link>
+          <Link to={`${locations.pathname === '/' || locations.pathname.includes('/job/search/') ? `/jobs/${_id}` : `${_id}`}`} className='hover:text-primary flex items-center'><span className='mr-2'>View Details </span><AiOutlineDoubleRight /></Link>
         </div>
       </div>
     </div>
