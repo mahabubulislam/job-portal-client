@@ -32,7 +32,7 @@ const Contact = () => {
                             <span className="block text-sm font-medium my-2">Your Message</span>
                             <textarea className="textarea textarea-bordered rounded-sm w-full" placeholder="Enter Your Message"></textarea>
                         </label>
-                        <button className='btn btn-outline btn-primary flex ml-auto my-2'><span className='mr-2'>Send Message </span><BiSend /></button>
+                        <button className='text-primary px-6 py-3 mx-2 rounded-lg border-primary border-l border-t border-r-2 border-b-2 hover:bg-primary flex hover:text-white' style={{ boxShadow: '2px 2px  0px 0px' }}><span className='mr-2'>Send Message </span><BiSend /></button>
                     </form>
                 </div>
                 <div className='flex flex-col items-start mb-10'>

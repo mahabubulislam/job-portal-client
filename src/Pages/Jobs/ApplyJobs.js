@@ -44,7 +44,7 @@ const ApplyJobs = () => {
                 <p className="font-medium flex mb-3"><BsFillInfoCircleFill className='mr-2 text-xl' /><span>Applying to {title} Job at {company}</span></p>
                 <div className='flex flex-col md:flex-row items-center justify-between'>
                     <p className='w-full md:w-3/4'>Whenever you apply to an internship or fresher job, this is the resume that the employer will see. Always make sure it is up to date.</p>
-                    <button onClick={handleApplyJob} className="btn btn-primary text-white mt-5">Proceed to Application</button>
+                    <button onClick={handleApplyJob} className='text-primary px-6 py-3 mx-2 rounded-lg border-primary border-l border-t border-r-2 border-b-2 hover:bg-primary hover:text-white' style={{ boxShadow: '2px 2px  0px 0px' }}>Proceed to Application</button>
                 </div>
             </section>
             <MyProfile />

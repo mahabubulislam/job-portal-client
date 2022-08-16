@@ -73,7 +73,7 @@ const JobDetails = () => {
                     <p className="font-medium">Vacancy</p>
                     <p>{vacancy}</p>
                 </div>
-                {userInfo?.role !== 'Requiter' && <button className="btn btn-primary block mt-5 mx-auto"><Link to={`/jobs/apply/${id}`}>Apply Now</Link></button>}
+                {userInfo?.role !== 'Requiter' && <button className='text-primary px-6 py-3 mx-auto block rounded-lg border-primary border-l border-t border-r-2 border-b-2 hover:bg-primary hover:text-white' style={{ boxShadow: '2px 2px  0px 0px' }}><Link to={`/jobs/apply/${id}`}>Apply Now</Link></button>}
             </section>
             <section className='p-8 border rounded-md bg-yellow-100'>
                 <p className="font-medium flex items-center mb-3"><BsFillInfoCircleFill className='mr-2' />Save yourself from fraud!</p>

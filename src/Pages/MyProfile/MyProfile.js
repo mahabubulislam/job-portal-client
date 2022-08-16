@@ -1,5 +1,4 @@
 import React from 'react';
-import { BsFillInfoCircleFill } from 'react-icons/bs';
 import useUser from '../../hooks/useUser';
 import Loading from '../Shared/Loading/Loading';
 import Courses from './Courses/Courses';

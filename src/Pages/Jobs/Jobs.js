@@ -1,5 +1,3 @@
-import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
 import React from 'react';
 import useJobs from '../../hooks/useJobs';
 import Loading from '../Shared/Loading/Loading';
