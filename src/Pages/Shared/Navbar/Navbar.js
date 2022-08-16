@@ -57,6 +57,7 @@ const Navbar = ({ children }) => {
                                         {userInfo?.role==='Candidate' && <li><Link className='bg-base-100 hover:text-primary hover:translate-x-1 delay-75' to='/applied-jobs'>Applied Jobs</Link></li>}
                                         {userInfo?.role==='Requiter' && <li><Link className='bg-base-100 hover:text-primary hover:translate-x-1 delay-75' to='/post-job'>Post Job</Link></li>}
                                         {userInfo?.role==='Requiter' && <li><Link className='bg-base-100 hover:text-primary hover:translate-x-1 delay-75' to='/candidates'>Candidates List</Link></li>}
+                                        {user && <li><Link className='bg-base-100 hover:text-primary hover:translate-x-1 delay-75' to='/add-review'>Add Review</Link></li>}
                                         
     
                                         <li><label htmlFor="logoutModal" className="bg-base-100 hover:text-primary hover:translate-x-1 delay-75">Sign Out</label></li>

@@ -14,7 +14,7 @@ const NewJobs = () => {
             <h1 className='text-4xl text-center font-bold'>New Jobs</h1>
             <p className=' text-center '>Find the best job from Job<span className='text-primary'>Haunt</span></p>
             {
-                jobs.slice(0,3).map(job => <Job key={job._id} job={job} />)
+                jobs?.slice(0,3).map(job => <Job key={job._id} job={job} />)
             }
             <Link to='/jobs' className='text-primary px-6 text-center py-3 mx-auto flex items-center justify-center mb-5 w-3/4 md:w-1/3 xl:w-1/6 rounded-lg border-primary border-l border-t border-r-2 border-b-2' style={{ boxShadow: '2px 2px  0px 0px' }}><span>View more </span><BsArrowRightShort className='text-xl' /></Link>
         </section>

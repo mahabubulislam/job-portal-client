@@ -17,7 +17,7 @@ const Banner = () => {
                     <p className='text-neutral my-2'>Find jobs, create trackable resumes and enrich your applications.Carefully crafted after analyzing the needs of different industries.</p>
                     <div className='flex flex-col md:flex-row rounded-lg'>
                         <input onChange={e=>setSearch(e.target.value)} className='bg-white p-3 focus:outline-primary shadow-lg rounded-md' placeholder='Enter job title' type="text" />
-                        <Link to={`job/search/title=${search}`} className='text-primary flex items-center px-6 py-3 mx-2 rounded-lg border-primary border-l border-t border-r-2 border-b-2 hover:bg-primary hover:text-white' style={{ boxShadow: '2px 2px  0px 0px' }}>Find Job<FiSearch className='text-xl mx-2'></FiSearch></Link>
+                        <Link to={`job/search/title=${search}`} className='text-primary flex items-center px-6 py-3 mx-2 rounded-lg border-primary border-l border-t border-r-2 border-b-2 hover:bg-primary hover:text-white cursor-pointer' style={{ boxShadow: '2px 2px  0px 0px' }}>Find Job<FiSearch className='text-xl mx-2'></FiSearch></Link>
                     </div>
                 </div>
             </div>

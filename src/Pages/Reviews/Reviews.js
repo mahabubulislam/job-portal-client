@@ -5,8 +5,15 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import { Autoplay, Pagination, Navigation } from "swiper";
 import Review from './Review';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
+import Loading from '../Shared/Loading/Loading';
 const Reviews = () => {
-    const reviews = [1,2,3,4,5,6,7]
+    const { data, isLoading } = useQuery(['reviews'], () => axios('http://localhost:5000/reviews'))
+    if(isLoading){
+        return <Loading/>
+    }
+    const reviews = data?.data
     return (
         <section>
             <h3 className='text-3xl text-secondary font-bold text-center'>Happy Candidates</h3>

@@ -21,6 +21,7 @@ import CandidateResume from "./Pages/Candidates/CandidatesInfo/CandidateResume";
 import SearchJobs from "./Pages/Jobs/SearchJobs";
 import NotFound from "./Pages/NotFound/NotFound";
 import ComingSoon from "./Pages/ComingSoon/ComingSoon";
+import AddReview from "./Pages/Reviews/AddReview";
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
         <Route path="/candidates" element={<RequireAuth><Candidates/></RequireAuth>}></Route>
         <Route path="/candidates/:email" element={<RequireAuth><CandidateResume/></RequireAuth>}></Route>
         <Route path="/my-profile" element={<RequireAuth><MyProfile/></RequireAuth>}></Route>
+        <Route path="/add-review" element={<RequireAuth><AddReview/></RequireAuth>}></Route>
         <Route path="/post-job" element={<RequireAuth><PostJobs/></RequireAuth>}></Route>
         <Route path="/jobs/apply/:id" element={<RequireAuth><ApplyJobs/></RequireAuth>}></Route>
         <Route path="*" element={<NotFound/>}></Route>

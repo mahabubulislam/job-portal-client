@@ -17,6 +17,9 @@ const PostJobs = () => {
                     toast.success('Successfully Posted Job')
                     reset()
                 }
+                else{
+                    toast.error('Something went wrong, Please try again')
+                }
             })
     }
     return (
