@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 const AddImportantLinks = ({ user, refetch }) => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = async data => {
-        axios.patch(`http://localhost:5000/users/links/${user?.email}`, {
+        axios.patch(`https://arcane-thicket-72200.herokuapp.com/users/links/${user?.email}`, {
             link: data
         })
             .then(res => {

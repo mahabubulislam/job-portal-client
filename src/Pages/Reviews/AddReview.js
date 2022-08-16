@@ -49,7 +49,7 @@ const AddReview = () => {
             review,
             rating
         }
-        axios.post('http://localhost:5000/reviews', {
+        axios.post('https://arcane-thicket-72200.herokuapp.com/reviews', {
             review: customerReview
         })
             .then(res => {

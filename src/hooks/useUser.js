@@ -6,7 +6,7 @@ import auth from "../firebase.init";
 
 const useUser = () => {
     const [user] = useAuthState(auth);
-    const { data, isLoading, refetch } = useQuery(['users'], () => axios(`http://localhost:5000/users/${user?.email}`))
+    const { data, isLoading, refetch } = useQuery(['users'], () => axios(`https://arcane-thicket-72200.herokuapp.com/users/${user?.email}`))
     const userInfo = data?.data;
     return [userInfo, isLoading, refetch]
 }

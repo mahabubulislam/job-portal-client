@@ -18,7 +18,7 @@ const Skills = ({ userInfo, refetch }) => {
             confirmButtonText: 'Yes',
         }).then(result => {
             if (result.isConfirmed) {
-                axios.put(`http://localhost:5000/users/skills/${userInfo?.email}`, {
+                axios.put(`https://arcane-thicket-72200.herokuapp.com/users/skills/${userInfo?.email}`, {
                     skill: name
                 })
                     .then(res => {

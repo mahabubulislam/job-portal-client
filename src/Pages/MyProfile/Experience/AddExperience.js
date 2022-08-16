@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 const AddExperience = ({user, refetch}) => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = async data => {
-        axios.patch(`http://localhost:5000/users/experiences/${user?.email}`, {
+        axios.patch(`https://arcane-thicket-72200.herokuapp.com/users/experiences/${user?.email}`, {
             experience: data
         })
             .then(res => {

@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 const AddEducation = ({ user, refetch }) => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = async data => {
-        axios.patch(`http://localhost:5000/users/education/${user?.email}`, {
+        axios.patch(`https://arcane-thicket-72200.herokuapp.com/users/education/${user?.email}`, {
             education: data
         })
             .then(res => {

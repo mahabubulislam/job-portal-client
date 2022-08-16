@@ -12,7 +12,7 @@ import Loading from '../Shared/Loading/Loading';
 const JobDetails = () => {
     const [userInfo] = useUser()
     const { id } = useParams()
-    const { data, isLoading } = useQuery(['job'], () => axios(`http://localhost:5000/jobs/${id}`))
+    const { data, isLoading } = useQuery(['job'], () => axios(`https://arcane-thicket-72200.herokuapp.com/jobs/${id}`))
     if (isLoading ) {
         return <Loading />
     }

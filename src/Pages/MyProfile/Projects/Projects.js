@@ -18,7 +18,7 @@ const Projects = ({ userInfo , refetch}) => {
             confirmButtonText: 'Yes',
         }).then(result => {
             if (result.isConfirmed) {
-                axios.put(`http://localhost:5000/users/projects/${userInfo?.email}`, {
+                axios.put(`https://arcane-thicket-72200.herokuapp.com/users/projects/${userInfo?.email}`, {
                     project: name
                 })
                     .then(res => {

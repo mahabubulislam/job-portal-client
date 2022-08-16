@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 const EditPersonalInfo = ({ user , refetch}) => {
     const { register, handleSubmit } = useForm();
     const onSubmit = async data => {
-        axios.patch(`http://localhost:5000/users/${user?.email}`,{
+        axios.patch(`https://arcane-thicket-72200.herokuapp.com/users/${user?.email}`,{
             phoneNumber: data?.phoneNumber,
             address: data?.address
         })

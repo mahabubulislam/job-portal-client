@@ -17,7 +17,7 @@ const CandidateResume = () => {
     const [user, setUser] = useState({})
     const [loading,setLoading]=useState(true)
     useEffect(() => {
-        fetch(`http://localhost:5000/users/${email}`)
+        fetch(`https://arcane-thicket-72200.herokuapp.com/users/${email}`)
             .then(res => res.json())
             .then(data => {
                 setUser(data)

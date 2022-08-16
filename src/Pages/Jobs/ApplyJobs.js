@@ -12,7 +12,7 @@ import Loading from '../Shared/Loading/Loading';
 const ApplyJobs = () => {
     const [users, loading] = useAuthState(auth)
     const { id } = useParams()
-    const { data, isLoading } = useQuery(['job'], () => axios(`http://localhost:5000/jobs/${id}`))
+    const { data, isLoading } = useQuery(['job'], () => axios(`https://arcane-thicket-72200.herokuapp.com/jobs/${id}`))
   
     if (isLoading || loading) {
         return <Loading />
@@ -24,7 +24,7 @@ const ApplyJobs = () => {
             name:users?.displayName
         }
         if (users?.email) {
-            axios.patch(`http://localhost:5000/jobs/${company}`, {
+            axios.patch(`https://arcane-thicket-72200.herokuapp.com/jobs/${company}`, {
                 user
             })
                 .then(res => {

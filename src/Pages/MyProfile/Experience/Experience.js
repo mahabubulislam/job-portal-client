@@ -18,7 +18,7 @@ const Experience = ({ userInfo, refetch }) => {
             confirmButtonText: 'Yes',
         }).then(result => {
             if (result.isConfirmed) {
-                axios.put(`http://localhost:5000/users/experiences/${userInfo?.email}`, {
+                axios.put(`https://arcane-thicket-72200.herokuapp.com/users/experiences/${userInfo?.email}`, {
                     experience: company
                 })
                     .then(res => {

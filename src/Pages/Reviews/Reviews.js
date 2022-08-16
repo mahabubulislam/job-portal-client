@@ -9,7 +9,7 @@ import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import Loading from '../Shared/Loading/Loading';
 const Reviews = () => {
-    const { data, isLoading } = useQuery(['reviews'], () => axios('http://localhost:5000/reviews'))
+    const { data, isLoading } = useQuery(['reviews'], () => axios('https://arcane-thicket-72200.herokuapp.com/reviews'))
     if(isLoading){
         return <Loading/>
     }

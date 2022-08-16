@@ -7,7 +7,7 @@ const AddProject = ({ user, refetch }) => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = async data => {
         console.log(data);
-        axios.patch(`http://localhost:5000/users/projects/${user?.email}`, {
+        axios.patch(`https://arcane-thicket-72200.herokuapp.com/users/projects/${user?.email}`, {
             project: data
         })
             .then(res => {

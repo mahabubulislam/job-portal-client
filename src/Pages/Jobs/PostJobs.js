@@ -9,7 +9,7 @@ const PostJobs = () => {
     const [user] = useAuthState(auth)
     const { register, handleSubmit, reset, formState: { errors }, } = useForm()
     const onSubmit = data => {
-        axios.post('http://localhost:5000/jobs', {
+        axios.post('https://arcane-thicket-72200.herokuapp.com/jobs', {
             job: data
         })
             .then(res => {

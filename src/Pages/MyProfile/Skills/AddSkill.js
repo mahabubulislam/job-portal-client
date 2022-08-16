@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 const AddSkill = ({user, refetch}) => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = async data => {
-        axios.patch(`http://localhost:5000/users/skills/${user?.email}`, {
+        axios.patch(`https://arcane-thicket-72200.herokuapp.com/users/skills/${user?.email}`, {
             skill: data
         })
             .then(res => {

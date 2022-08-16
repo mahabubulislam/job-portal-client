@@ -18,7 +18,7 @@ const ImportantLinks = ({ userInfo, refetch }) => {
             confirmButtonText: 'Yes',
         }).then(result => {
             if (result.isConfirmed) {
-                axios.put(`http://localhost:5000/users/links/${userInfo?.email}`, {
+                axios.put(`https://arcane-thicket-72200.herokuapp.com/users/links/${userInfo?.email}`, {
                     link: name
                 })
                     .then(res => {

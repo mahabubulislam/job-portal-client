@@ -22,7 +22,7 @@ const Signup = () => {
     };
     useEffect(() => {
         if (user) {
-            axios.post('http://localhost:5000/users', {
+            axios.post('https://arcane-thicket-72200.herokuapp.com/users', {
                 email: user?.user.email,
                 role: role,
                 name: user?.user.displayName
