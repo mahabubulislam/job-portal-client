@@ -35,7 +35,7 @@ const Reviews = () => {
                 {
                     reviews?.map((review,index) =>
                         <SwiperSlide key={index}>
-                            <Review  />
+                            <Review  reviews={review}/>
                         </SwiperSlide>)
                 }
 

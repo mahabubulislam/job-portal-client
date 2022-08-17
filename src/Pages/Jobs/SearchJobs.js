@@ -24,7 +24,10 @@ const SearchJobs = () => {
                         }
                     </div>
                     :
-                    <NotFound />
+                    <>
+                        <h1 className='text-3xl text-center font-semibold text-secondary'>Search Result for <span className='capitalize'>{search[1]}</span></h1>
+                        <NotFound />
+                    </>
             }
         </section>
     );

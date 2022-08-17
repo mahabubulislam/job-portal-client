@@ -57,7 +57,7 @@ const JobDetails = () => {
                 <div className='mt-5'>
                     <p className="font-semibold my-2">Required Skills</p>
                     {
-                        skills.split(',').map(skill => <div key={skill} className="btn btn-sm mr-2">{skill}</div>)
+                        skills.split(',').map(skill => <div key={skill} className="btn btn-sm mr-2 my-1">{skill}</div>)
                     }
 
                 </div>
